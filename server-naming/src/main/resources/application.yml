@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: server-naming
+
+  config:
+    import: optional:configserver:http://localhost:8888
+    profile: native
