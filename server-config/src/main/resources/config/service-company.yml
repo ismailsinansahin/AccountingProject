@@ -1,9 +1,9 @@
 server:
-  port: 8001
+  port: 8002
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/accounting-app-user-db
+    url: jdbc:postgresql://localhost:5432/accounting-app-company-db
     username: postgres
     password: Ankara3302
   jpa:
