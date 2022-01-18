@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface CompanyServiceClient {
 
     @GetMapping("/companies")
-    ResponseEntity<CompanyDto> get(@RequestParam(value = "companyName") String companyName);
+    ResponseEntity<CompanyDto> get(@RequestParam(value = "company_name") String companyName);
 
 }

@@ -1,6 +1,7 @@
 package com.cydeo.servicecompany.serviceImpl;
 
 import com.cydeo.servicecommon.contract.CompanyDto;
+import com.cydeo.servicecommon.contract.UserDto;
 import com.cydeo.servicecompany.entity.Company;
 import com.cydeo.servicecompany.mapper.MapperUtil;
 import com.cydeo.servicecompany.repository.CompanyRepository;
@@ -36,6 +37,11 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public CompanyDto get(String companyName) {
         return mapperUtil.convert(companyRepository.findCompanyByCompanyName(companyName), new CompanyDto());
+    }
+
+    @Override
+    public List<UserDto> getAllUsers(String companyName) {
+//        return mapperUtil.convert(companyRepository.findCompanyByCompanyName(companyName), new CompanyDto());
     }
 
     @Override

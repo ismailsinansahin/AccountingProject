@@ -42,7 +42,9 @@ public class UserServiceImpl implements UserService {
         Long companyId = companyServiceClient.get(userDto.getCompanyName()).getBody().getId();
         user.setCompanyId(companyId);
         userRepository.save(user);
-        return mapperUtil.convert(user, new UserDto());
+        UserDto userDto1 = mapperUtil.convert(user, new UserDto());
+        userDto1.setCompanyName(userDto.getCompanyName());
+        return userDto1;
     }
 
     @Override

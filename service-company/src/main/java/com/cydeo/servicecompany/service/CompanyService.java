@@ -1,6 +1,7 @@
 package com.cydeo.servicecompany.service;
 
 import com.cydeo.servicecommon.contract.CompanyDto;
+import com.cydeo.servicecommon.contract.UserDto;
 
 import java.util.List;
 
@@ -12,9 +13,11 @@ public interface CompanyService {
 
     CompanyDto get(String companyName);
 
-    CompanyDto create(CompanyDto userDto);
+    List<UserDto> getAllUsers(String companyName);
 
-    CompanyDto update(CompanyDto userDto);
+    CompanyDto create(CompanyDto companyDto);
+
+    CompanyDto update(CompanyDto companyDto);
 
     void delete(Long id);
 

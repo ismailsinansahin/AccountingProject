@@ -1,6 +1,7 @@
 package com.cydeo.servicecompany.controller;
 
 import com.cydeo.servicecommon.contract.CompanyDto;
+import com.cydeo.servicecommon.contract.UserDto;
 import com.cydeo.servicecompany.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,11 @@ public class CompanyController {
     @GetMapping
     public ResponseEntity<CompanyDto> get(@RequestParam(value = "company_name") String companyName){
         return ResponseEntity.ok(companyService.get(companyName));
+    }
+
+    @GetMapping("/{company_name}")
+    public ResponseEntity<List<UserDto>> getAllUsers(@PathVariable("company_name") String companyName) {
+        return ResponseEntity.ok(companyService.getAllUsers(companyName));
     }
 
     @PostMapping
