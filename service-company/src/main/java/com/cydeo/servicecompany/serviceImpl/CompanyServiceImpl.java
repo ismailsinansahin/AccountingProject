@@ -1,5 +1,6 @@
 package com.cydeo.servicecompany.serviceImpl;
 
+import com.cydeo.servicecommon.client.UserServiceClient;
 import com.cydeo.servicecommon.contract.CompanyDto;
 import com.cydeo.servicecommon.contract.UserDto;
 import com.cydeo.servicecompany.entity.Company;
@@ -19,6 +20,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     private final CompanyRepository companyRepository;
     private final MapperUtil mapperUtil;
+    private final UserServiceClient userServiceClient;
 
     @Override
     public List<CompanyDto> getAll() {
@@ -40,8 +42,10 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<UserDto> getAllUsers(String companyName) {
-//        return mapperUtil.convert(companyRepository.findCompanyByCompanyName(companyName), new CompanyDto());
+    public List<UserDto> getAllUsersOfCompany(Long companyId) {
+        List<UserDto> userDtoList = userServiceClient.getAllUsersOfCompany(companyId).getBody();
+        System.out.println("userDtoList = " + userDtoList);
+        return userDtoList;
     }
 
     @Override

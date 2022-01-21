@@ -1,15 +1,17 @@
 package com.cydeo.servicecommon.client;
 
-import com.cydeo.servicecommon.contract.CompanyDto;
+import com.cydeo.servicecommon.contract.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient("service-company")
-public interface CompanyServiceClient {
+import java.util.List;
 
-    @GetMapping("/companies/name")
-    ResponseEntity<CompanyDto> get(@RequestParam(value = "company_name") String companyName);
+@FeignClient("service-user")
+public interface UserServiceClient {
+
+    @GetMapping("/users")
+    ResponseEntity<List<UserDto>> getAllUsersOfCompany(@RequestParam("company_id") Long companyId);
 
 }

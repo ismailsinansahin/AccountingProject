@@ -26,14 +26,14 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.get(id));
     }
 
-    @GetMapping
+    @GetMapping("/name")
     public ResponseEntity<CompanyDto> get(@RequestParam(value = "company_name") String companyName){
         return ResponseEntity.ok(companyService.get(companyName));
     }
 
-    @GetMapping("/{company_name}")
-    public ResponseEntity<List<UserDto>> getAllUsers(@PathVariable("company_name") String companyName) {
-        return ResponseEntity.ok(companyService.getAllUsers(companyName));
+    @GetMapping("/users")
+    public ResponseEntity<List<UserDto>> getAllUsersOfCompany(@RequestParam("company_id") Long companyId) {
+        return ResponseEntity.ok(companyService.getAllUsersOfCompany(companyId));
     }
 
     @PostMapping

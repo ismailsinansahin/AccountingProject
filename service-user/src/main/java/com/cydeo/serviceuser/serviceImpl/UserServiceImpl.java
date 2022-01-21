@@ -36,6 +36,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserDto> getAllUsersOfCompany(Long id) {
+        return userRepository.findAllByCompanyId(id)
+                .stream()
+                .map(user -> mapperUtil.convert(user, new UserDto()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
     @Transactional
     public UserDto create(UserDto userDto) {
         User user = mapperUtil.convert(userDto, new User());

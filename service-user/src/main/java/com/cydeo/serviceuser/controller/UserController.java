@@ -25,6 +25,11 @@ public class UserController {
         return ResponseEntity.ok(userService.get(id));
     }
 
+    @GetMapping()
+    public ResponseEntity<List<UserDto>> getAllUsersOfCompany(@RequestParam("company_id") Long companyId){
+        return ResponseEntity.ok(userService.getAllUsersOfCompany(companyId));
+    }
+
     @PostMapping
     public ResponseEntity<UserDto> save(@RequestBody UserDto userDto){
         return ResponseEntity.ok(userService.create(userDto));

@@ -13,7 +13,7 @@ public interface CompanyService {
 
     CompanyDto get(String companyName);
 
-    List<UserDto> getAllUsers(String companyName);
+    List<UserDto> getAllUsersOfCompany(Long companyId);
 
     CompanyDto create(CompanyDto companyDto);
 

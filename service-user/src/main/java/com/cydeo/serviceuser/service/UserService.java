@@ -10,6 +10,8 @@ public interface UserService {
 
     UserDto get(Long id);
 
+    List<UserDto> getAllUsersOfCompany(Long id);
+
     UserDto create(UserDto userDto);
 
     UserDto update(UserDto userDto);
