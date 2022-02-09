@@ -1,0 +1,23 @@
+server:
+  port: 8003
+
+spring:
+  datasource:
+    #    url: jdbc:postgresql://localhost:5432/accounting-app-user-db
+    #    username: postgres
+    #    password: admin
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/accounting-app-company-db
+    username: root
+    password: Admin12.
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always

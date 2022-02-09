@@ -11,6 +11,7 @@
         <module name="server-naming" />
         <module name="service-user" />
         <module name="server-config" />
+        <module name="service-product" />
         <module name="service-common" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="service-common" target="11" />
       <module name="service-company" target="11" />
       <module name="service-parent" target="11" />
+      <module name="service-product" target="11" />
       <module name="service-user" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -30,6 +32,7 @@
       <module name="service-common" options="-parameters" />
       <module name="service-company" options="-parameters" />
       <module name="service-parent" options="-parameters" />
+      <module name="service-product" options="-parameters" />
       <module name="service-user" options="-parameters" />
     </option>
   </component>
