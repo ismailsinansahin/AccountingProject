@@ -10,9 +10,12 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ismailsinansahin/AccountingProject/tree/master/server-config/src/main/resources/config
-          username: ismailsinansahin
-          password: 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
+#          uri: https://github.com/ismailsinansahin/AccountingProject/tree/master/server-config/src/main/resources/config
+#          username: ismailsinansahin
+#          password: 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
+            uri: https://github.com/bahatas/AccountingProject/blob/baha/server-config/src/main/resources/config
+            username: bahatas
+            password: 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
 #  cloud:
 #    config:
 #      server:

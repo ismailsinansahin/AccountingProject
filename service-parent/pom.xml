@@ -17,6 +17,7 @@
 
     <modules>
         <module>../service-user</module>
+        <module>../service-company</module>
     </modules>
 
     <groupId>com.cydeo</groupId>
@@ -58,6 +59,13 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.26</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
