@@ -8,30 +8,31 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
-    <artifactId>service-product</artifactId>
+    <artifactId>server-hystrix</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>service-product</name>
-    <description>Product Service For Accounting</description>
+    <name>server-hystrix</name>
+    <description>Hystrix</description>
     <properties>
         <java.version>11</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+      <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+        </dependency>
         <dependency>
-            <groupId>com.cydeo</groupId>
-            <artifactId>service-company</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
     </dependencies>
 
@@ -45,3 +46,6 @@
     </build>
 
 </project>
+
+
+

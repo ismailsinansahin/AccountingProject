@@ -7,16 +7,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-company" />
+        <module name="server-gateway" />
         <module name="server-naming" />
         <module name="service-user" />
-        <module name="server-config" />
         <module name="service-product" />
+        <module name="service-company" />
+        <module name="server-hystrix" />
+        <module name="server-config" />
         <module name="service-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="server-config" target="11" />
+      <module name="server-gateway" target="11" />
+      <module name="server-hystrix" target="11" />
       <module name="server-naming" target="11" />
       <module name="service-common" target="11" />
       <module name="service-company" target="11" />
@@ -28,6 +32,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="server-config" options="-parameters" />
+      <module name="server-gateway" options="-parameters" />
+      <module name="server-hystrix" options="-parameters" />
       <module name="server-naming" options="-parameters" />
       <module name="service-common" options="-parameters" />
       <module name="service-company" options="-parameters" />

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/server-config/server-config.iml" filepath="$PROJECT_DIR$/server-config/server-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-gateway/server-gateway.iml" filepath="$PROJECT_DIR$/server-gateway/server-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-hystrix/server-hystrix.iml" filepath="$PROJECT_DIR$/server-hystrix/server-hystrix.iml" />
       <module fileurl="file://$PROJECT_DIR$/server-naming/server-naming.iml" filepath="$PROJECT_DIR$/server-naming/server-naming.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-common/service-common.iml" filepath="$PROJECT_DIR$/service-common/service-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-company/service-company.iml" filepath="$PROJECT_DIR$/service-company/service-company.iml" />

@@ -1,0 +1,58 @@
+server:
+  port: 9999
+
+logging.pattern.console: "%clr(%d{HH:mm:ss.SSS}){blue} %clr(---){faint} %clr([%15.15t]){yellow} %clr(:){red} %clr(%m){faint}%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=gateway:
+
+spring:
+  application:
+    name: server-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: SERVICE-COMPANY
+          uri: lb://service-company
+          predicates:
+            -Path=/company/**
+          filters:
+            - RewritePath=/(?<segment>.*),/$\{segment}
+            - name: CircuitBraker
+              args:
+                name: SERVICE-COMPANY
+                fallbackuri: forward/serviceCompanyFallback
+        - id: SERVICE-USER
+          uri: lb://service-user
+          predicates:
+              - Path=/user/**
+          filters:
+            - name: CircuitBreaker
+                args:
+                  name: SERVICE-USER
+                  fallbackuri: forward:/serviceUserFallBack
+        - id: SERVICE-USER
+          uri: lb://SERVICE-USER
+          predicates:
+            - Path=/user/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: SERVICE-USER
+                allbackuri: forward:/serviceUserFallBack
+        - id: SERVICE-PRODUCT
+          uri: lb://service-product
+          predicates:
+            - Path=/product/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: SERVICE-PRODUCT
+                fallbackuri: forward:/serviceProductFallBack
+
+
+
+

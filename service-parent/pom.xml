@@ -18,6 +18,9 @@
     <modules>
         <module>../service-user</module>
         <module>../service-company</module>
+        <module>../service-product</module>
+        <module>../server-gateway</module>
+        <module>../server-hystrix</module>
     </modules>
 
     <groupId>com.cydeo</groupId>

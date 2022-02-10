@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/service-common/pom.xml" />
         <option value="$PROJECT_DIR$/service-company/pom.xml" />
         <option value="$PROJECT_DIR$/service-product/pom.xml" />
+        <option value="$PROJECT_DIR$/server-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/server-hystrix/pom.xml" />
       </list>
     </option>
   </component>
