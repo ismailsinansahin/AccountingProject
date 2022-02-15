@@ -9,28 +9,15 @@ import org.springframework.context.annotation.Configuration;
 public class ApiGatewayConfiguration {
 
     @Bean
-    public RouteLocator customRouteLocator(RouteLocatorBuilder builder, ThrottleGatewayFilterFactory throttle) {
+    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(r -> r.host("**.abc.org").and().path("/image/png")
-                        .filters(f ->
-                                f.addResponseHeader("X-TestHeader", "foobar"))
-                        .uri("http://httpbin.org:80")
+                .route(r -> r.path("/companies/**")
+                        .uri("lb://service-company")
                 )
-                .route(r -> r.path("/image/webp")
-                        .filters(f ->
-                                f.addResponseHeader("X-AnotherHeader", "baz"))
-                        .uri("http://httpbin.org:80")
-                )
-                .route(r -> r.order(-1)
-                        .host("**.throttle.org").and().path("/get")
-                        .filters(f -> f.filter(throttle.apply(1,
-                                1,
-                                10,
-                                TimeUnit.SECONDS)))
-                        .uri("http://httpbin.org:80")
+                .route(r -> r.path("/users/**")
+                        .uri("lb://service-user")
                 )
                 .build();
     }
-
 
 }
