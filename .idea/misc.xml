@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/server-naming/pom.xml" />
         <option value="$PROJECT_DIR$/service-common/pom.xml" />
         <option value="$PROJECT_DIR$/service-company/pom.xml" />
+        <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
       </list>
     </option>
   </component>
