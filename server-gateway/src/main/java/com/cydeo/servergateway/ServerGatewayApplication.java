@@ -23,14 +23,14 @@ public class ServerGatewayApplication {
 //                        .filters(f -> f.rewritePath("/foo/(?<segment>.*)", "/${segment}"))
 //                        .uri("http://httpbin.org"))
 //                .route("hystrix_route", r -> r.host("*.hystrix.org")
-//                        .filters(f -> f.hystrix(c -> c.setName("slowcmd")))
+//                        .filters(f -> f.circuitBreaker(c -> c.setName("slowcmd")))
 //                        .uri("http://httpbin.org"))
 //                .route("hystrix_fallback_route", r -> r.host("*.hystrixfallback.org")
-//                        .filters(f -> f.hystrix(c -> c.setName("slowcmd").setFallbackUri("forward:/hystrixfallback")))
+//                        .filters(f -> f.circuitBreaker(c -> c.setName("slowcmd").setFallbackUri("forward:/hystrixfallback")))
 //                        .uri("http://httpbin.org"))
 //                .route("limit_route", r -> r
 //                        .host("*.limited.org").and().path("/anything/**")
-//                        .filters(f -> f.requestRateLimiter(c -> c.setRateLimiter(redisRateLimiter())))
+//                        .filters(f -> f.requestRateLimiter(c -> c.setRateLimiter()))
 //                        .uri("http://httpbin.org"))
 //                .build();
 //    }
