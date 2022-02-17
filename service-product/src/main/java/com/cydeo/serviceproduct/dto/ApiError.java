@@ -14,16 +14,18 @@ public class ApiError {
     private final String message;
     private final Object details;
 
-    ApiError(Throwable exception){
-        this.code=400;
+    ApiError(Throwable exception) {
+        this.code = 400;
         this.message = exception.getMessage();
         this.details = null;
     }
+
     public ApiError(Integer code, String message) {
         this.code = code;
         this.message = message;
         this.details = null;
     }
+
     public ApiError(Integer code, String message, Object details) {
         this.code = code;
         this.message = message;
@@ -33,6 +35,6 @@ public class ApiError {
     ApiError(String message) {
         this.code = 400;
         this.message = message;
-        this.details= null;
+        this.details = null;
     }
 }

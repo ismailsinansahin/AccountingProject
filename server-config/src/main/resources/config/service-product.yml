@@ -3,21 +3,20 @@ server:
 
 spring:
   datasource:
-    #    url: jdbc:postgresql://localhost:5432/accounting-app-user-db
-    #    username: postgres
-    #    password: admin
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/accounting-app-company-db
-    username: root
-    password: Admin12.
+    url: jdbc:postgresql://localhost:5432/accounting-app-user-db
+    username: postgres
+    password: 2754
   jpa:
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     defer-datasource-initialization: true
   sql:
     init:
       mode: always
+
+  zipkin:
+    baseUrl: http://localhost:9411/

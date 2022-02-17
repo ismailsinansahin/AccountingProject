@@ -23,18 +23,18 @@ public class ResultEnvelope<T> {
     private final Date createdAt;
     private final String request_Id;
     private final T data;
-    private final Map<String,String> metaData;
+    private final Map<String, String> metaData;
 
     private final List<ApiError> errors;
 
 
-    public static <T>ResultEnvelope ok(T data){
-        return new ResultEnvelope(true,200,new Date(), UUID.randomUUID().toString(),data,null,null);
+    public static <T> ResultEnvelope ok(T data) {
+        return new ResultEnvelope(true, 200, new Date(), UUID.randomUUID().toString(), data, null, null);
     }
 
-    public static <T>ResultEnvelope fail(Integer code, List<ApiError> errors){
+    public static <T> ResultEnvelope fail(Integer code, List<ApiError> errors) {
 
-        return new ResultEnvelope(false,code,new Date(), UUID.randomUUID().toString(),null,null,errors);
+        return new ResultEnvelope(false, code, new Date(), UUID.randomUUID().toString(), null, null, errors);
     }
 
 }
