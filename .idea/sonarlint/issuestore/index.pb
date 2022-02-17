@@ -9,8 +9,6 @@ Oservice-user/src/main/java/com/cydeo/serviceuser/repository/UserRepository.java
 Uservice-user/src/main/java/com/cydeo/serviceuser/configuration/UserConfiguration.java,2/3/231649376542c0902e5d68ee8ee0afba82da09ca
 ‚
 Rservice-parent/src/main/java/com/cydeo/serviceparent/ServiceParentApplication.java,1/7/178c57ec478494d72c94613035404c59a21d4fd5
-ˆ
-Xservice-product/src/main/java/com/cydeo/serviceproduct/repository/ProductRepository.java,8/a/8a2323271be4d55d0d3860214045731a15071943
 F
 service-common/pom.xml,0/1/01169f24a131912029afad73e1209ea0db789676
 G
