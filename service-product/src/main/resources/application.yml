@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: service-product
+  config:
+    import: optional:configserver:http://localhost:8888
+    profile: native
+
+

@@ -4,11 +4,14 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/server-config/server-config.iml" filepath="$PROJECT_DIR$/server-config/server-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-gateway/server-gateway.iml" filepath="$PROJECT_DIR$/server-gateway/server-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-hystrix/server-hystrix.iml" filepath="$PROJECT_DIR$/server-hystrix/server-hystrix.iml" />
       <module fileurl="file://$PROJECT_DIR$/server-naming/server-naming.iml" filepath="$PROJECT_DIR$/server-naming/server-naming.iml" />
       <module fileurl="file://$PROJECT_DIR$/server-zipkin/server-zipkin.iml" filepath="$PROJECT_DIR$/server-zipkin/server-zipkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-common/service-common.iml" filepath="$PROJECT_DIR$/service-common/service-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-company/service-company.iml" filepath="$PROJECT_DIR$/service-company/service-company.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-parent/service-parent.iml" filepath="$PROJECT_DIR$/service-parent/service-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-product/service-product.iml" filepath="$PROJECT_DIR$/service-product/service-product.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-user/service-user.iml" filepath="$PROJECT_DIR$/service-user/service-user.iml" />
     </modules>
   </component>
