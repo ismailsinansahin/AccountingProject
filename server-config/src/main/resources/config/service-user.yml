@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/accounting-app-user-db
+    url: jdbc:postgresql://localhost:5432/accounting-app-company-db
     username: postgres
     password: 2754
   jpa:

@@ -22,7 +22,7 @@ services:
       - "zipkin-eureka"
     restart:
       always
-#  eureka:
+#  service-naming:
 #    container_name: eureka
 #    build:
 #      context: ./netflix-eureka-naming-server

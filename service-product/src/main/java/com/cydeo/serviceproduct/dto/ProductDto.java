@@ -2,8 +2,16 @@ package com.cydeo.serviceproduct.dto;
 
 import com.cydeo.serviceproduct.enums.ProductStatus;
 import com.cydeo.serviceproduct.enums.Unit;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties (value = {"hibernateLazyInitializer"},ignoreUnknown = true)
 public class ProductDto {
+
 
     private Long id;
     private String name;

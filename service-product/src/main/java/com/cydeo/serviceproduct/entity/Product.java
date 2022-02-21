@@ -5,6 +5,7 @@ import com.cydeo.serviceproduct.enums.Unit;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Where(clause="is_deleted = false")
 public class Product implements Serializable {
 
     @Id
@@ -24,10 +26,12 @@ public class Product implements Serializable {
     private long categoryId;
     private int qty;
     private int price;
+    @Enumerated(EnumType.STRING)
     private Unit unit;
     private int lowLimitAlert;
     private int tax;
     private Long companyId;
     private Byte enabled;
+    @Enumerated(EnumType.STRING)
     private ProductStatus productStatus;
 }

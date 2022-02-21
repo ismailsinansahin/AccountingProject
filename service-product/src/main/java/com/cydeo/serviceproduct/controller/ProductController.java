@@ -25,6 +25,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+
     @GetMapping({"/test","/"})
     public ResultEnvelope<ResponseEntity> getProductList() {
 
@@ -37,7 +38,9 @@ public class ProductController {
     public ResultEnvelope<ResponseEntity> getAllProductList() throws Exception {
 
 
-            List<Product> productDtos = productService.listOfCompanyProducts(1L);
+            List<ProductDto> productDtos = productService.listOfCompanyProducts(1L);
+
+
 
         return ResultEnvelope.ok(productDtos);
 
