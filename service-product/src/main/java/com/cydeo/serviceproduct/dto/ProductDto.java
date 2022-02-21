@@ -5,12 +5,15 @@ import com.cydeo.serviceproduct.enums.Unit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties (value = {"hibernateLazyInitializer"},ignoreUnknown = true)
-public class ProductDto {
+public class ProductDto implements Serializable {
+
 
 
     private Long id;

@@ -40,14 +40,12 @@ public class ProductController {
 
             List<ProductDto> productDtos = productService.listOfCompanyProducts(1L);
 
-
-
-        return ResultEnvelope.ok(productDtos);
+        return ResultEnvelope.ok(ResponseEntity.ok(productDtos));
 
     }
 
     @GetMapping("/get/{productid}")
-    public  ResultEnvelope<ResponseEntity> getProductbyId(@PathVariable("productid") Long productId){
+    public  ResultEnvelope<ResponseEntity> getProductbyId(@RequestParam("productid") Long productId){
 
 
         Product product = productService.getProductById(productId);
