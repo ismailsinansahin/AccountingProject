@@ -27,15 +27,16 @@ public class ProductController {
 
 
     @GetMapping({"/test","/"})
-    public ResultEnvelope<ResponseEntity> getProductList() {
+    public ResponseEntity<ResultEnvelope> getProductList() {
 
         String initialResponse = "This is TEST RESPONSE from Product Service";
 
-        return ResultEnvelope.ok(initialResponse);
+        return ResponseEntity.ok(new ResultEnvelope(true).ok(initialResponse));
+
     }
 
     @GetMapping("/list")
-    public ResultEnvelope<ResponseEntity> getAllProductList() throws Exception {
+    public ResponseEntity<ResultEnvelope> getAllProductList() throws Exception {
 
 
             List<ProductDto> productDtos = productService.listOfCompanyProducts(1L);
@@ -45,29 +46,29 @@ public class ProductController {
     }
 
     @GetMapping("/get/{productid}")
-    public  ResultEnvelope<ResponseEntity> getProductbyId(@RequestParam("productid") Long productId){
+    public  ResponseEntity<ResultEnvelope> getProductbyId(@RequestParam("productid") Long productId){
 
 
         Product product = productService.getProductById(productId);
 
-        return ResultEnvelope.ok(product);
+        return ResponseEntity.ok(new ResultEnvelope().ok);
     }
 
     @PostMapping("/save")
-    public ResultEnvelope<ResponseEntity> save(@RequestBody ProductDto productDto){
+    public ResponseEntity<ResultEnvelope> save(@RequestBody ProductDto productDto){
         ProductDto save = productService.save(productDto);
         return ResultEnvelope.ok(save);
 
     }
     @DeleteMapping("delete/{productid}")
-    public ResultEnvelope<ResponseEntity> deleteProduct(@PathVariable("productid") Long id){
+    public ResponseEntity<ResultEnvelope> deleteProduct(@PathVariable("productid") Long id){
 
         productService.delete(id);
         return ResultEnvelope.ok("Product Deleted Successfully");
     }
 
     @PostMapping("/edit")
-    public  ResultEnvelope<ResponseEntity> editProductbyId(@RequestBody ProductDto productDto) {
+    public  ResponseEntity<ResultEnvelope> editProductbyId(@RequestBody ProductDto productDto) {
 
 
         ProductDto product = productService.update(productDto);

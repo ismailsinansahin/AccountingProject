@@ -2,16 +2,15 @@ package com.cydeo.serviceproduct.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+@Setter
+@Builder
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonInclude(JsonInclude.Include.NON_NULL)

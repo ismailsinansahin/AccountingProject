@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
         List<Product> products = productRepository.findAllByCompanyId(companyId);
 
 
-        if (!products.isEmpty()) throw new Exception("There is no product listed");
+        if (!products.isEmpty()) throw new  Exception("There is no product listed");
 
         return products.stream().map(e -> modelMapper.map(e, ProductDto.class)).collect(Collectors.toList());
 
