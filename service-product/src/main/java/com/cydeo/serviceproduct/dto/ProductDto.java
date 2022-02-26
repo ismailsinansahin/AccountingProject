@@ -19,7 +19,7 @@ public class ProductDto implements Serializable {
     private Long id;
     private String name;
     private String description;
-    private long categoryId;
+    private Long categoryId;
     private int qty;
     private int price;
     private Unit unit;
@@ -28,4 +28,6 @@ public class ProductDto implements Serializable {
     private Long companyId;
     private Byte enabled;
     private ProductStatus productStatus;
+    private boolean isDeleted= false;
+
 }

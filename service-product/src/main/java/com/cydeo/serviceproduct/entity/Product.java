@@ -23,7 +23,7 @@ public class Product implements Serializable {
     private Long id;
     private String prodcutName;
     private String description;
-    private long categoryId;
+    private Long categoryId;
     private int qty;
     private int price;
     @Enumerated(EnumType.STRING)
@@ -34,4 +34,5 @@ public class Product implements Serializable {
     private Byte enabled;
     @Enumerated(EnumType.STRING)
     private ProductStatus productStatus;
+    private boolean isDeleted= false;
 }

@@ -27,47 +27,48 @@ public class ProductController {
 
 
     @GetMapping({"/test","/"})
-    public ResultEnvelope<ResponseEntity> getProductList() {
+    public ResponseEntity<String> getProductList() {
 
-        String initialResponse = "This is TEST RESPONSE from Product Service";
+        String initialResponse ="This is TEST RESPONSE from Product Service" ;
 
-        return ResultEnvelope.ok(initialResponse);
+        return ResponseEntity.ok(initialResponse);
     }
 
     @GetMapping("/list")
-    public ResultEnvelope<ResponseEntity> getAllProductList() throws Exception {
+    public ResultEnvelope<ProductDto> getAllProductList() throws Exception {
 
 
+        //todo
             List<ProductDto> productDtos = productService.listOfCompanyProducts(1L);
 
-        return ResultEnvelope.ok(ResponseEntity.ok(productDtos));
+            return ResultEnvelope.ok(productDtos);
 
     }
 
     @GetMapping("/get/{productid}")
-    public  ResultEnvelope<ResponseEntity> getProductbyId(@RequestParam("productid") Long productId){
+    public  ResultEnvelope<ProductDto> getProductbyId(@RequestParam("productid") Long productId){
 
 
-        Product product = productService.getProductById(productId);
+        ProductDto productDto = productService.getProductById(productId);
 
-        return ResultEnvelope.ok(product);
+        return ResultEnvelope.ok(productDto);
     }
 
     @PostMapping("/save")
-    public ResultEnvelope<ResponseEntity> save(@RequestBody ProductDto productDto){
+    public ResultEnvelope<ProductDto> save(@RequestBody ProductDto productDto){
         ProductDto save = productService.save(productDto);
         return ResultEnvelope.ok(save);
 
     }
     @DeleteMapping("delete/{productid}")
-    public ResultEnvelope<ResponseEntity> deleteProduct(@PathVariable("productid") Long id){
+    public ResultEnvelope<String> deleteProduct(@RequestParam("productid") Long id){
 
-        productService.delete(id);
-        return ResultEnvelope.ok("Product Deleted Successfully");
+        String delete = productService.delete(id);
+        return ResultEnvelope.ok(delete);
     }
 
-    @PostMapping("/edit")
-    public  ResultEnvelope<ResponseEntity> editProductbyId(@RequestBody ProductDto productDto) {
+    @PostMapping("/edit/{productid}")
+    public  ResultEnvelope<ProductDto> editProductbyId(@RequestParam ProductDto productDto) {
 
 
         ProductDto product = productService.update(productDto);
