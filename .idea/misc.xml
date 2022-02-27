@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/server-zipkin/pom.xml" />
         <option value="$PROJECT_DIR$/service-product/pom.xml" />
+        <option value="$PROJECT_DIR$/service-payment/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
