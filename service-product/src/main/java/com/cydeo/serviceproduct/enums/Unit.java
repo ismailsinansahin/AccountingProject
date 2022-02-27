@@ -1,5 +1,8 @@
 package com.cydeo.serviceproduct.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum Unit {
 
         LIBRE("Libre"), GALON("Galon"), PIECES("Pieces"), KILOGRAM("Kilogram"),

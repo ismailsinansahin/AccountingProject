@@ -34,14 +34,27 @@ public class ProductController {
         return ResponseEntity.ok(initialResponse);
     }
 
+    /**
+     *
+     *company products
+     */
     @GetMapping("/list")
-    public ResultEnvelope<ProductDto> getAllProductList() throws Exception {
+    public ResultEnvelope<ProductDto> getAllCompanyProductList() throws Exception {
 
 
         //todo
             List<ProductDto> productDtos = productService.listOfCompanyProducts(1L);
 
             return ResultEnvelope.ok(productDtos);
+
+    }
+    @GetMapping("/all-product-list")
+    public ResultEnvelope<ProductDto> getAllProducts() throws Exception {
+
+
+        List<ProductDto> productDtos = productService.getAllProducts();
+
+        return ResultEnvelope.ok(productDtos);
 
     }
 

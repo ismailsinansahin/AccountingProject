@@ -35,6 +35,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<ProductDto> getAllProducts() throws Exception {
+
+        List<Product> allProducts = productRepository.findAll();
+
+        return allProducts.stream().map(e->modelMapper.map(e,ProductDto.class)).collect(Collectors.toList());
+
+    }
+
+    @Override
     public ProductDto getProductById(Long id) {
         Product byId = productRepository.getById(id);
         return modelMapper.map(byId,ProductDto.class);
@@ -52,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
         Product byId = productRepository.getById(productId);
         byId.setDeleted(true);
         productRepository.save(byId);
-        return productRepository.getById(byId.getId()).getProdcutName()+ "Deleted Successfully";
+        return productRepository.getById(byId.getId()).getProductName()+ "Deleted Successfully";
     }
 
     @Override
