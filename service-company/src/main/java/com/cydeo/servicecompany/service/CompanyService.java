@@ -11,13 +11,13 @@ public interface CompanyService {
 
     CompanyDto get(Long id);
 
-    CompanyDto get(String companyName);
+    CompanyDto getByName(String companyName);
 
     List<UserDto> getAllUsersOfCompany(Long companyId);
 
     CompanyDto create(CompanyDto companyDto);
 
-    CompanyDto update(CompanyDto companyDto);
+    CompanyDto update(CompanyDto companyDto, Long id);
 
     void delete(Long id);
 

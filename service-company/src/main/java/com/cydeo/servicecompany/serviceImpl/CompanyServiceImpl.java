@@ -37,8 +37,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public CompanyDto get(String companyName) {
-        return mapperUtil.convert(companyRepository.findCompanyByCompanyName(companyName), new CompanyDto());
+    public CompanyDto getByName(String companyName) {
+        return mapperUtil.convert(companyRepository.findByName(companyName), new CompanyDto());
     }
 
     @Override
@@ -56,7 +56,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public CompanyDto update(CompanyDto companyDto) {
+    public CompanyDto update(CompanyDto companyDto, Long id) {
+        companyDto.setId(id);
         Company company = mapperUtil.convert(companyDto, new Company());
         companyRepository.save(company);
         return mapperUtil.convert(company, new CompanyDto());

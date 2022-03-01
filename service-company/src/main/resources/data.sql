@@ -1,2 +1,35 @@
-insert into "accounting-app-company-db".public.companies(company_name)
-values('Cydeo');
+insert into companies(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
+                      address1, address2, email, enabled, establishment_date, representative, state_name, name,
+                      zip_code, company_status, phone)
+values ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, '15th Avenue',
+        'Wooden Street, Buenos Aires', 'welfare@yahoo.com', false, '2021-01-05', 'TomLy Hunt', 'BRAZIL', 'Hunt Techno',
+        '33600', 'ACTIVE', '3216549877'),
+       ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Future Street, New York', 'Future2 Street, Texas',
+        'spoon@gmail.com', false, '2021-01-05', 'Sharon Hanks', 'GERMANY', 'Power Kitchen', '33600', 'ACTIVE',
+        '6547893258');
+
+insert into client_vendor (company_name, phone, email, company_id, type, zipcode, address, state, enabled,
+                           insert_date_time,
+                           last_update_date_time, insert_user_id, last_update_user_id, is_deleted)
+values ('Twitterlist', '4513577934', 'adot0@blinklist.com', 1, 'VENDOR', '17459', '868 Johnson Trail',
+        'Alabama', true, '2020-12-06', '2020-12-22', 1, 1, false),
+       ('Centizu', '4048033839', 'sthoresby1@arstechnica.com', 1, 'CLIENT', '12365', '1 Wayridge Hill',
+        'Kentucky', true, '2021-08-21', '2021-09-06', 1, 1, false),
+       ('Gigazoom', '7608276583', 'mgianettini2@microsoft.com', 1, 'CLIENT', '9508', '786 Becker Alley',
+        'Kentucky', false, '2021-06-30', '2021-04-12', 1, 1, false),
+       ('Miboo', '2993537588', 'hpledger3@si.edu', 1, 'VENDOR', '56987', '30 Fairview Hill',
+        'Ohio', true, '2021-06-06', '2021-08-08', 1, 1, false),
+       ('Linkbuzz', '9645832087', 'awaadenburg4@printfriendly.com', 1, 'VENDOR', '56358', '738 Meadow Vale Place',
+        'Texas', true, '2021-05-25', '2020-10-05', 1, 1, false),
+       ('Edgepulse', '2911727014', 'emortell5@senate.gov', 1, 'VENDOR', '48180', '04 Kim Point',
+        'Montana', false, '2020-12-17', '2021-06-17', 1, 1, false),
+       ('Edgeblab', '4584148888', 'stwitchings6@nasa.gov', 1, 'CLIENT', '48180', '75 Laurel Junction',
+        'Arizona', true, '2020-10-28', '2021-04-16', 1, 1, false),
+       ('Geba', '8851329243', 'dblake7@seesaa.net', 1, 'VENDOR', '7020', '12136 Mariners Cove Drive',
+        'Nevada', false, '2020-12-12', '2020-12-21', 1, 1, false),
+       ('Dynabox', '8314236383', 'lendecott8@people.com.cn', 1, 'VENDOR', '48180',
+        '0972 Calypso Place', 'Nebraska', false, '2020-10-02', '2020-10-10', 1, 1, false),
+       ('Livepath', '8572581966', 'jdimitrov9@typepad.com', 1, 'CLIENT', '48180', '911 Pepper Wood Plaza',
+        'Michigan', true, '2021-08-16', '2021-02-27', 1, 1, false),
+       ('Janyx', '2455556278', 'rmessera@webmd.com', 1, 'CLIENT', '7020', '2 Parkside Parkway',
+        'New York', true, '2021-05-22', '2021-02-12', 1, 1, false);

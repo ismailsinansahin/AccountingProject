@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="server-naming" />
-        <module name="server-zipkin" />
         <module name="service-user" />
         <module name="api-gateway" />
         <module name="service-company" />
