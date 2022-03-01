@@ -26,10 +26,10 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.get(id));
     }
 
-    @GetMapping("/name")
-    public ResponseEntity<CompanyDto> get(@RequestParam(value = "company_name") String companyName){
-        return ResponseEntity.ok(companyService.get(companyName));
-    }
+//    @GetMapping("/name")
+//    public ResponseEntity<CompanyDto> get(@RequestParam(value = "company_name") String companyName){
+//        return ResponseEntity.ok(companyService.get(companyName));
+//    }
 
     @GetMapping("/users")
     public ResponseEntity<List<UserDto>> getAllUsersOfCompany(@RequestParam("company_id") Long companyId) {

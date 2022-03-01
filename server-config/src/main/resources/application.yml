@@ -6,15 +6,15 @@ spring:
     name: server-config
   profiles:
     active: native
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/ismailsinansahin/AccountingProject/tree/master/server-config/src/main/resources/config
-          username: ismailsinansahin
-          password: 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
 #  cloud:
 #    config:
 #      server:
-#        native:
-#          search-locations: classpath:/config
+#        git:
+#          uri: https://github.com/ismailsinansahin/AccountingProject/tree/master/server-config/src/main/resources/config
+#          username: ismailsinansahin
+#          password: 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
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config

@@ -11,7 +11,7 @@ public interface CompanyService {
 
     CompanyDto get(Long id);
 
-    CompanyDto get(String companyName);
+//    CompanyDto get(String companyName);
 
     List<UserDto> getAllUsersOfCompany(Long companyId);
 

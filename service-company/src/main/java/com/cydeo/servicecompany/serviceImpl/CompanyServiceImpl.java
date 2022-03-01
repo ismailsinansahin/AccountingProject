@@ -36,10 +36,10 @@ public class CompanyServiceImpl implements CompanyService {
         return mapperUtil.convert(companyRepository.findById(id).get(), new CompanyDto());
     }
 
-    @Override
-    public CompanyDto get(String companyName) {
-        return mapperUtil.convert(companyRepository.findCompanyByCompanyName(companyName), new CompanyDto());
-    }
+//    @Override
+//    public CompanyDto get(String companyName) {
+//        return mapperUtil.convert(companyRepository.findCompanyByCompanyName(companyName), new CompanyDto());
+//    }
 
     @Override
     public List<UserDto> getAllUsersOfCompany(Long companyId) {
