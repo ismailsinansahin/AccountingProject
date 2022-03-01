@@ -18,7 +18,7 @@ import java.time.LocalDate;
 public class Company extends BaseEntity {
 
     @Column(nullable = false, unique = true)
-    private String title;
+    private String name;
 
     private String address1;
     private String address2;

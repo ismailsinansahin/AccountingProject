@@ -1,5 +1,5 @@
 insert into companies(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
-                      address1, address2, email, enabled, establishment_date, representative, state_name, title,
+                      address1, address2, email, enabled, establishment_date, representative, state_name, name,
                       zip_code, company_status, phone)
 values ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, '15th Avenue',
         'Wooden Street, Buenos Aires', 'welfare@yahoo.com', false, '2021-01-05', 'TomLy Hunt', 'BRAZIL', 'Hunt Techno',

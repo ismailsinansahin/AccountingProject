@@ -13,7 +13,7 @@ public class CompanyDto {
 
     private Long id;
 
-    private String title;
+    private String name;
 
     private String address1;
     private String address2;
