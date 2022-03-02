@@ -3,30 +3,32 @@ package com.cydeo.serviceinvoice.controller;
 import com.cydeo.servicecommon.contract.InvoiceDto;
 import com.cydeo.servicecommon.general.ResponseWrapper;
 import com.cydeo.serviceinvoice.service.InvoiceService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/invoices")
-@RequiredArgsConstructor
 public class InvoiceController {
 
-    InvoiceService invoiceService;
+    private final InvoiceService invoiceService;
+
+    public InvoiceController(InvoiceService invoiceService) {
+        this.invoiceService = invoiceService;
+    }
 
     @GetMapping("/all")
     public ResponseEntity<ResponseWrapper> getAll(){
-        return ResponseEntity.ok(new ResponseWrapper("Invoices are retrieved",invoiceService.getAll()));
+        return ResponseEntity.ok(new ResponseWrapper("Invoices are retrieved", invoiceService.getAll()));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{invoiceId}")
     public ResponseEntity<ResponseWrapper> getById(@PathVariable("invoiceId") Long invoiceId){
-        return ResponseEntity.ok(new ResponseWrapper("Invoice is retrieved",invoiceService.get(invoiceId)));
+        return ResponseEntity.ok(new ResponseWrapper("Invoice is retrieved", invoiceService.get(invoiceId)));
     }
 
     @GetMapping
     ResponseEntity<ResponseWrapper> getByName(@RequestParam(value = "invoiceNo") String invoiceNo){
-        return ResponseEntity.ok(new ResponseWrapper("Invoice is retrieved",invoiceService.getByInvoiceNo(invoiceNo)));
+        return ResponseEntity.ok(new ResponseWrapper("Invoice is retrieved", invoiceService.getByInvoiceNo(invoiceNo)));
     }
 
     @PostMapping
@@ -34,16 +36,15 @@ public class InvoiceController {
         return ResponseEntity.ok(new ResponseWrapper("Invoice is created", invoiceService.create(invoiceDto)));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{invoiceId}")
     public ResponseEntity<ResponseWrapper> update(@RequestBody InvoiceDto invoiceDto, @PathVariable("invoiceId") Long invoiceId){
-        return ResponseEntity.ok(new ResponseWrapper("Invoice is updated",invoiceService.update(invoiceDto,invoiceId)));
+        return ResponseEntity.ok(new ResponseWrapper("Invoice is updated", invoiceService.update(invoiceDto,invoiceId)));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{invoiceId}")
     public ResponseEntity<Object> delete(@PathVariable("invoiceId") Long invoiceId){
         invoiceService.delete(invoiceId);
         return ResponseEntity.noContent().build();
-
     }
 
 //    @GetMapping("/users")

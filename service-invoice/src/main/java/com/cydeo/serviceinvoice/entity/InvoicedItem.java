@@ -32,7 +32,7 @@ public class InvoicedItem extends BaseEntity{
     private int saledAmount;
     private boolean enabled;
 
-    @OneToOne(mappedBy = "invoicedItem")
+    @OneToOne
     private InvoiceProductRel invoiceProductRel;
 
 }
