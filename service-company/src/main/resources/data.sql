@@ -6,9 +6,12 @@ values ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, '15th Avenue'
         '33600', 'ACTIVE', '3216549877'),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Future Street, New York', 'Future2 Street, Texas',
         'spoon@gmail.com', false, '2021-01-05', 'Sharon Hanks', 'GERMANY', 'Power Kitchen', '33600', 'ACTIVE',
+        '6547893258'),
+       ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Cydeo Street, Virginia', 'Cydeo 2 Street, Texas',
+        'cydeo@gmail.com', false, '2021-01-05', 'Cydeo Hanks', 'GERMANY', 'Care One', '33600', 'ACTIVE',
         '6547893258');
 
-insert into client_vendor (company_name, phone, email, company_id, type, zipcode, address, state, enabled,
+insert into client_vendor (name, phone, email, company_id, type, zipcode, address, state, enabled,
                            insert_date_time,
                            last_update_date_time, insert_user_id, last_update_user_id, is_deleted)
 values ('Twitterlist', '4513577934', 'adot0@blinklist.com', 1, 'VENDOR', '17459', '868 Johnson Trail',
@@ -23,13 +26,13 @@ values ('Twitterlist', '4513577934', 'adot0@blinklist.com', 1, 'VENDOR', '17459'
         'Texas', true, '2021-05-25', '2020-10-05', 1, 1, false),
        ('Edgepulse', '2911727014', 'emortell5@senate.gov', 1, 'VENDOR', '48180', '04 Kim Point',
         'Montana', false, '2020-12-17', '2021-06-17', 1, 1, false),
-       ('Edgeblab', '4584148888', 'stwitchings6@nasa.gov', 1, 'CLIENT', '48180', '75 Laurel Junction',
+       ('Edgeblab', '4584148888', 'stwitchings6@nasa.gov', 2, 'CLIENT', '48180', '75 Laurel Junction',
         'Arizona', true, '2020-10-28', '2021-04-16', 1, 1, false),
-       ('Geba', '8851329243', 'dblake7@seesaa.net', 1, 'VENDOR', '7020', '12136 Mariners Cove Drive',
+       ('Geba', '8851329243', 'dblake7@seesaa.net', 2, 'VENDOR', '7020', '12136 Mariners Cove Drive',
         'Nevada', false, '2020-12-12', '2020-12-21', 1, 1, false),
-       ('Dynabox', '8314236383', 'lendecott8@people.com.cn', 1, 'VENDOR', '48180',
+       ('Dynabox', '8314236383', 'lendecott8@people.com.cn', 2, 'VENDOR', '48180',
         '0972 Calypso Place', 'Nebraska', false, '2020-10-02', '2020-10-10', 1, 1, false),
-       ('Livepath', '8572581966', 'jdimitrov9@typepad.com', 1, 'CLIENT', '48180', '911 Pepper Wood Plaza',
+       ('Livepath', '8572581966', 'jdimitrov9@typepad.com', 2, 'CLIENT', '48180', '911 Pepper Wood Plaza',
         'Michigan', true, '2021-08-16', '2021-02-27', 1, 1, false),
-       ('Janyx', '2455556278', 'rmessera@webmd.com', 1, 'CLIENT', '7020', '2 Parkside Parkway',
+       ('Janyx', '2455556278', 'rmessera@webmd.com', 2, 'CLIENT', '7020', '2 Parkside Parkway',
         'New York', true, '2021-05-22', '2021-02-12', 1, 1, false);
