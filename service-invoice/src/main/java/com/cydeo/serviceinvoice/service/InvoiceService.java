@@ -1,13 +1,12 @@
 package com.cydeo.serviceinvoice.service;
 
 import com.cydeo.servicecommon.contract.InvoiceDto;
-import com.cydeo.serviceinvoice.entity.Invoice;
 
 import java.util.List;
 
 public interface InvoiceService {
 
-    List<Invoice> getAll();
+    List<InvoiceDto> getAll();
 
     InvoiceDto get(Long invoiceId);
 

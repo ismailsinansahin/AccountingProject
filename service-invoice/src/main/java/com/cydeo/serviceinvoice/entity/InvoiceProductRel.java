@@ -25,7 +25,7 @@ public class InvoiceProductRel extends BaseEntity {
 
     private Long product_id;
 
-    @OneToOne
+    @OneToOne(mappedBy = "invoiceProductRel")
     private InvoicedItem invoicedItem;
 
 }
