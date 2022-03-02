@@ -34,8 +34,6 @@ public class CompanyController {
         return ResponseEntity.ok(new ResponseWrapper("Company is retrieved",companyService.getByName(companyName)));
     }
 
-
-
     @PostMapping
     public ResponseEntity<ResponseWrapper> save(@RequestBody CompanyDto companyDto){
         return ResponseEntity.ok(new ResponseWrapper("Company is created", companyService.create(companyDto)));
@@ -50,11 +48,16 @@ public class CompanyController {
     public ResponseEntity<Object> delete(@PathVariable("id") Long id){
         companyService.delete(id);
         return ResponseEntity.noContent().build();
-
     }
 
     @GetMapping("/users")
     public ResponseEntity<List<UserDto>> getAllUsersOfCompany(@RequestParam("company_id") Long companyId) {
         return ResponseEntity.ok(companyService.getAllUsersOfCompany(companyId));
     }
+
+    @GetMapping("/api/v1/companies/current")
+    Long getCurrentCompany(){
+        return 1L;
+    }
+
 }

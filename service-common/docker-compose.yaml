@@ -1,0 +1,60 @@
+# https://docs.docker.com/compose/compose-file/
+version: "3.9"
+
+# https://docs.docker.com/compose/compose-file/#networks
+networks:
+  zipkin-eureka:
+
+volumes:
+  log_volume:
+
+services:
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    environment:
+      #      - "RABBIT_URI=amqp://guest:guest@rabbitmq-zipkin:5672"
+      - STORAGE_TYPE=mem
+    networks:
+      - "zipkin-eureka"
+    restart:
+      always
+
+
+
+#  service-naming:
+#    container_name: eureka
+#    build:
+#      context: ./netflix-eureka-naming-server
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8761:8761"
+#    environment:
+#      - "SPRING_PROFILES_ACTIVE=active"
+#      - "LOGGING_FILE=/logs/eureka-application.log"
+#    networks:
+#      - "zipkin-eureka"
+#    volumes:
+#      - log_volume:/logs
+#  postgres:
+#    image: postgres:13.1
+#    healthcheck:
+#        test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+#        timeout: 45s
+#        interval: 10s
+#        retries: 10
+#    restart: always
+#    environment:
+#        - POSTGRES_USER=postgres
+#        - POSTGRES_PASSWORD=2754
+#        - APP_DB_USER=docker
+#        - APP_DB_PASS=docker
+#        - APP_DB_NAME=docker
+#    volumes:
+#        - ./db:/docker-entrypoint-initdb.d/
+#    ports:
+#        - 5432:5432
+#    networks:
+#      - "zipkin-eureka"
