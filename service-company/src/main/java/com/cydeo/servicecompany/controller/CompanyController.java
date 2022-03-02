@@ -55,9 +55,9 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.getAllUsersOfCompany(companyId));
     }
 
-    @GetMapping("/api/v1/companies/current")
+    @GetMapping("/current")
     Long getCurrentCompany(){
-        return 1L;
+        return 3L;
     }
 
 }
