@@ -17,7 +17,7 @@ public class ClientVendorDto {
 
     private String email;
 
-    private Long companyId;
+//    private Long companyId;
 
     private String type;
 

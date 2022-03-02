@@ -27,4 +27,7 @@ public interface CompanyServiceClient {
     @DeleteMapping("/api/v1/companies/{id}")
     ResponseEntity<Object> delete(@PathVariable("id") Long id);
 
+    @GetMapping("/api/v1/companies/current")
+    Long getCurrentCompany();
+
 }

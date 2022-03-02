@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/accounting-app-db
     username: postgres
-    password: 1167
+    password: Ankara3302
   jpa:
     hibernate:
       ddl-auto: create
@@ -19,3 +19,4 @@ spring:
   sql:
     init:
       mode: always
+
