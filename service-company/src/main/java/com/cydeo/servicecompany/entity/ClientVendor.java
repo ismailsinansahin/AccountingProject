@@ -1,6 +1,7 @@
 package com.cydeo.servicecompany.entity;
 
 import com.cydeo.servicecompany.enums.ClientVendorType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,8 +19,8 @@ import javax.persistence.*;
 @Where(clause = "is_deleted=false")
 public class ClientVendor extends BaseEntity {
 
-    @Column(name = "company_name")
-    private String companyName;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "phone")
     private String phone;
@@ -29,6 +30,7 @@ public class ClientVendor extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
+    @JsonIgnore
     private Company company;
 
     @Column(name = "type")

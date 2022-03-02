@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/server-naming/server-naming.iml" filepath="$PROJECT_DIR$/server-naming/server-naming.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-common/service-common.iml" filepath="$PROJECT_DIR$/service-common/service-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-company/service-company.iml" filepath="$PROJECT_DIR$/service-company/service-company.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-invoice/service-invoice.iml" filepath="$PROJECT_DIR$/service-invoice/service-invoice.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-parent/service-parent.iml" filepath="$PROJECT_DIR$/service-parent/service-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-user/service-user.iml" filepath="$PROJECT_DIR$/service-user/service-user.iml" />
     </modules>

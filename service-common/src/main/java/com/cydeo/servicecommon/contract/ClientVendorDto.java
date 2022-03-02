@@ -1,5 +1,6 @@
 package com.cydeo.servicecommon.contract;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,12 +12,13 @@ public class ClientVendorDto {
 
     private Long id;
 
-    private String companyName;
+    private String name;
 
     private String phone;
 
     private String email;
 
+    @JsonIgnore
     private Long companyId;
 
     private String type;

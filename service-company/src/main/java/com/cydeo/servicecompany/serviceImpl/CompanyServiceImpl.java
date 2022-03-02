@@ -64,7 +64,9 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public void delete(Long id)  {
-        companyRepository.delete(companyRepository.findById(id).get());
+    public void delete(Long id) {
+        Company company = companyRepository.getById(id);
+        company.setIsDeleted(true);
+        companyRepository.save(company);
     }
 }
