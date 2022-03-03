@@ -3,6 +3,12 @@ package com.cydeo.servicepayment.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sun.istack.NotNull;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.util.UUID;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaymentAuthorizationRequest {

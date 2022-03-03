@@ -1,29 +1,32 @@
-#spring:
-#  application:
-#    name: service-payment
-#  config:
-#    import: optional:configserver:http://localhost:8888
-#    profile: native
+spring:
+  application:
+    name: service-payment
+  config:
+    import: optional:configserver:http://localhost:8888
+    profile: native
 #server:
 #  port: 8010
 
-spring:
-  application:
-      name: service-payment
-  datasource:
-    url: jdbc:postgresql://localhost:5432/accounting-app-company-db
-    username: postgres
-    password: 2754
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
-    defer-datasource-initialization: true
-  sql:
-    init:
-      mode: always
-server:
-  port: 8010
+#spring:
+#  application:
+#      name: service-payment
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/accounting-app-company-db
+#    username: postgres
+#    password: 2754
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: true
+#    defer-datasource-initialization: true
+#  sql:
+#    init:
+#      mode: always
+#server:
+#  port: 8010
+
+client_id: "3fda055a-77f7-4496-a93e-adbc39b39011"
+client_secret: "40316b6d-4656-409c-bd1b-ac1f11738ae8"

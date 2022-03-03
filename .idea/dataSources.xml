@@ -9,19 +9,5 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/accounting-app-company-db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="accounting-app-user-db" uuid="977abca5-1b09-4506-90d3-300244683785">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/accounting-app-user-db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="accounting-app-company" uuid="8b0ecc85-69e0-4392-827c-f5db9e695856">
-      <synchronize>true</synchronize>
-      <configured-by-url>true</configured-by-url>
-      <jdbc-driver>java.sql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/accounting-app-company-db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
   </component>
 </project>
