@@ -5,12 +5,15 @@ import com.cydeo.servicepayment.dto.InstitutionsResponse;
 import com.cydeo.servicepayment.dto.PaymentAuthorizationBody;
 import com.cydeo.servicepayment.dto.ResultEnvelope;
 import com.cydeo.servicepayment.service.PaymentService;
+import com.cydeo.servicepayment.service.PaymentServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.sun.istack.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -27,13 +30,15 @@ public class PaymentController {
 
     //this method works properly
 
-//    @GetMapping("/institutions")
-//    public ResultEnvelope<List<Institution>> getInstitutions() {
-//
-//        var body = this.paymentService.getInstitutions();
+    @GetMapping("/institutions/sdk")
+    public ResultEnvelope<List<Institution>> getInstitutionswithsdk() {
+
+        PaymentServiceImpl paymentService = new PaymentServiceImpl();
+        paymentService.getInstitutionsWithSdk();
+//        var body = this.paymentService.
 //        log.info(body.toString());
-//        return ResultEnvelope.ok(body);
-//    }
+        return ResultEnvelope.ok(body);
+    }
 
 
     @GetMapping("/institutions")
