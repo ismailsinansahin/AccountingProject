@@ -1,0 +1,2 @@
+insert into products(category_id, company_id, description, enabled,is_deleted, low_limit_alert, price, product_name, product_status, qty, tax, unit)
+VALUES  (1,1,'Smart Phone',1,false,5,250,'Apple Iphone 13 Pro Max','ACTIVE',5,25,'PIECES');

@@ -17,6 +17,10 @@
 
     <modules>
         <module>../service-user</module>
+        <module>../service-company</module>
+        <module>../service-invoice</module>
+        <module>../service-product</module>
+
     </modules>
 
     <groupId>com.cydeo</groupId>

@@ -1,0 +1,17 @@
+package com.cydeo.serviceproduct.service;
+
+import com.cydeo.serviceproduct.dto.ProductDto;
+import com.cydeo.serviceproduct.entity.Product;
+
+import java.util.*;
+
+public interface ProductService {
+
+    List<ProductDto> listOfCompanyProducts(Long CompanyId) throws Exception;
+    List<ProductDto> getAllProducts() throws Exception;
+    ProductDto getProductById(Long id);
+    ProductDto save(ProductDto productDto);
+    String delete(Long productId);
+    ProductDto update(ProductDto dto);
+
+}
