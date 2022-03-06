@@ -1,22 +1,44 @@
 package com.cydeo.servicecompany.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.cydeo.servicecompany.enums.CompanyStatus;
+import com.cydeo.servicecompany.enums.States;
+import lombok.*;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
-@Entity
-@Table(name = "companies")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Company {
+@Getter
+@Setter
+@Entity
+@Table(name = "companies")
+@Where(clause = "is_deleted=false")
+public class Company extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false, unique = true)
+    private String name;
 
-    private String companyName;
+    private String address1;
+    private String address2;
+
+    @Enumerated(EnumType.STRING)
+    private States stateName;
+
+    private String zipCode;
+
+    private String representative;
+
+    private String email;
+
+    private String phone;
+
+    private LocalDate establishmentDate;
+
+    private Boolean enabled;
+
+    @Enumerated(EnumType.STRING)
+    private CompanyStatus companyStatus;
 
 }

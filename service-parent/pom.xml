@@ -17,10 +17,6 @@
 
     <modules>
         <module>../service-user</module>
-        <module>../service-company</module>
-        <module>../service-product</module>
-        <module>../server-gateway</module>
-        <module>../server-hystrix</module>
     </modules>
 
     <groupId>com.cydeo</groupId>
@@ -66,13 +62,6 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.26</version>
-        </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -101,13 +90,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
-
-
     </dependencies>
 
     <dependencyManagement>

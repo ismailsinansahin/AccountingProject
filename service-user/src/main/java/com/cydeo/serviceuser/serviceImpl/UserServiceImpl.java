@@ -1,6 +1,7 @@
 package com.cydeo.serviceuser.serviceImpl;
 
 import com.cydeo.servicecommon.client.CompanyServiceClient;
+import com.cydeo.servicecommon.contract.CompanyDto;
 import com.cydeo.servicecommon.contract.UserDto;
 import com.cydeo.serviceuser.entity.User;
 import com.cydeo.serviceuser.mapper.MapperUtil;
@@ -47,7 +48,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDto create(UserDto userDto) {
         User user = mapperUtil.convert(userDto, new User());
-        Long companyId = companyServiceClient.get(userDto.getCompanyName()).getBody().getId();
+        Long companyId = companyServiceClient.getCurrentCompany();
         user.setCompanyId(companyId);
         userRepository.save(user);
         UserDto userDto1 = mapperUtil.convert(user, new UserDto());
