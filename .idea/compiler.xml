@@ -7,14 +7,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="server-gateway" />
         <module name="server-naming" />
         <module name="service-user" />
         <module name="service-product" />
         <module name="api-gateway" />
         <module name="service-company" />
+        <module name="server-hystrix" />
         <module name="server-config" />
         <module name="service-common" />
         <module name="service-invoice" />
+      </profile>
+      <profile name="Annotation profile for Unknown" enabled="true">
+        <sourceOutputDir name="../../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wrapper (2)" />
+        <module name="wrapper (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,14 +37,18 @@
       <module name="service-company" target="11" />
       <module name="service-invoice" target="11" />
       <module name="service-parent" target="11" />
+      <module name="service-payment" target="11" />
       <module name="service-product" target="11" />
       <module name="service-user" target="11" />
+      <module name="wrapper (1)" target="1.5" />
+      <module name="wrapper (2)" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
       <module name="server-config" options="-parameters" />
+      <module name="server-gateway" options="-parameters" />
       <module name="server-naming" options="-parameters" />
       <module name="server-zipkin" options="-parameters" />
       <module name="service-common" options="-parameters" />
