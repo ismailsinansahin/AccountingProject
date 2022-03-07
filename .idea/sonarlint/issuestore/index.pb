@@ -27,5 +27,3 @@ E
 server-config/pom.xml,6/c/6cea8dfd5577e11807ec0065df90c06e5a6b6a2e
 D
 service-user/pom.xml,3/6/36c1aae2fe34f59bbf5eeb50d0e296b90d906748
-
-Oserver-naming/src/main/java/com/cydeo/servernaming/ServerNamingApplication.java,b/a/bab3d77bb5af4bbea343ae26c18e3f9218c89f6e

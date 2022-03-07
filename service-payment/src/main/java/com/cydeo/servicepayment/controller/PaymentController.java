@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import yapily.ApiException;
 
 import java.util.List;
 
@@ -31,13 +32,13 @@ public class PaymentController {
     //this method works properly
 
     @GetMapping("/institutions/sdk")
-    public ResultEnvelope<List<Institution>> getInstitutionswithsdk() {
+    public ResultEnvelope<List<Institution>> getInstitutionswithsdk() throws ApiException, JsonProcessingException {
 
         PaymentServiceImpl paymentService = new PaymentServiceImpl();
         paymentService.getInstitutionsWithSdk();
 //        var body = this.paymentService.
 //        log.info(body.toString());
-        return ResultEnvelope.ok(body);
+        return ResultEnvelope.ok(paymentService.getPayment().getInstitutionId());
     }
 
 
@@ -49,10 +50,10 @@ public class PaymentController {
         return ResponseEntity.ok(body);
     }
 
-    @GetMapping("/auth")
+    @GetMapping("/create-payment-auth-request")
     public ResultEnvelope auth() throws JsonProcessingException {
         log.info("Authentication request");
-        return ResultEnvelope.ok(this.paymentService.accountAuth());
+        return ResultEnvelope.ok(this.paymentService.createPaymentAuthorization());
     }
 
 
@@ -62,6 +63,14 @@ public class PaymentController {
         log.info("callback");
         return ResultEnvelope.ok(consent);
     }
+
+    @PostMapping("/make-payment")
+    public ResultEnvelope<String> yapilyMakePayment(@RequestParam("amount") Double amount) {
+
+        log.info("make-payment endpoint called ");
+        return ResultEnvelope.ok("");
+    }
+
 
 
 

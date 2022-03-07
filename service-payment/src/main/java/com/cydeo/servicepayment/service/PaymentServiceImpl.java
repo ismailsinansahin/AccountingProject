@@ -1,12 +1,13 @@
 package com.cydeo.servicepayment.service;
 
 
-import com.cydeo.servicepayment.dto.*;
-import com.cydeo.servicepayment.dto.Institution;
+import com.cydeo.servicepayment.dto.InstitutionsResponse;
+import com.cydeo.servicepayment.dto.PaymentAuthorizationBody;
+import com.cydeo.servicepayment.dto.PaymentAuthorizationRequest;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import reactor.util.retry.Retry;
 import yapily.ApiClient;
+import yapily.ApiException;
 import yapily.Configuration;
 import yapily.auth.HttpBasicAuth;
 import yapily.sdk.*;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Base64;
@@ -44,6 +47,11 @@ public class PaymentServiceImpl implements PaymentService {
 // @Value("${client_secret}")
 // private String client_secret;
 
+    public static void main(String[] args) throws ApiException {
+        PaymentServiceImpl paymentService = new PaymentServiceImpl();
+        paymentService.getInstitutionsWithSdk();
+    }
+
     public String generateToken() {
 
         String token = Base64.getEncoder().encodeToString(new String(this.client_id + ":" + this.client_secret).getBytes(StandardCharsets.UTF_8));
@@ -51,7 +59,6 @@ public class PaymentServiceImpl implements PaymentService {
         return token;
 
     }
-
 
     /**
      * curl --location --request GET 'https://api.yapily.com/institutions' \
@@ -74,7 +81,8 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public String accountAuth() {
+
+    public String accountAuth() throws JsonProcessingException {
 
         log.info(getPayment().toString());
         return
@@ -91,11 +99,109 @@ public class PaymentServiceImpl implements PaymentService {
                         .block().toString();
     }
 
-    public PaymentAuthorizationBody getPayment() {
+    @Override
+    public com.cydeo.servicepayment.dto.PaymentResponse makePayment() {
+        return null;
+    }
+
+    @Override
+    public void authForPayment() {
+
+    }
+
+
+    @Override
+    public String createPaymentAuthorization() throws JsonProcessingException {
+        /**
+         * this is body need to post
+         * {
+         *    "applicationUserId": "{{application-user-id}}",
+         *    "institutionId": "{{institution-id}}",
+         *    "paymentRequest": {
+         *       "type": "DOMESTIC_PAYMENT",
+         *       "paymentIdempotencyId": "1d54cf71bfe44b1b8e67247aed455d96",
+         *       "reference": "REFERENCE",
+         *       "contextType": "OTHER",
+         *       "amount": {
+         *          "amount": "4.00",
+         *          "currency": "GBP"
+         *       },
+         *       "payee": {
+         *          "name": "John Doe",
+         *          "address": {
+         *             "country": "GB"
+         *          },
+         *          "accountIdentifications": [
+         *             {
+         *                "type": "SORT_CODE",
+         *                "identification": "123456"
+         *             },
+         *             {
+         *                "type": "ACCOUNT_NUMBER",
+         *                "identification": "12345678"
+         *             }
+         *          ]
+         *       }
+         *    }
+         * }
+         *
+         * ****** this is body need to handle
+         *
+         * {
+         *     "meta": {
+         *         "tracingId": "274109a96f3c8ddd9d46c7d18e964eaf"
+         *     },
+         *     "data": {
+         *         "id": "e7f1b269-943b-445b-8cea-b0556ceb8048",
+         *         "userUuid": "27aa4942-de6a-4acc-b133-bdeee40c939e",
+         *         "applicationUserId": "user12345",
+         *         "institutionId": "monzo_ob",
+         *         "status": "AWAITING_AUTHORIZATION",
+         *         "createdAt": "2020-08-05T10:11:06.625Z",
+         *         "featureScope": [
+         *             "CREATE_DOMESTIC_SINGLE_PAYMENT",
+         *             "EXISTING_PAYMENTS_DETAILS",
+         *             "EXISTING_PAYMENT_INITIATION_DETAILS"
+         *         ],
+         *         "authorisationUrl": "https://verify.monzo.com/open-banking/authorize?client_id=oauth2client_00009pp1CRt4KarIZM7Pr1&response_type=code+id_token&state=6f3926d09372453595fac3fa6754e01c&nonce=6f3926d09372453595fac3fa6754e01c&scope=openid+payments&redirect_uri=https%3A%2F%2Fauth.yapily.com%2F&request=eyJraWQiOiJPNWp3ZXpxTlNzeVlacHotZHpfVUhEbkJINHciLCJhbGciOiJQUzI1NiJ9.eyJhdWQiOiJodHRwczovL2FwaS5tb256by5jb20vb3Blbi1iYW5raW5nLyIsInNjb3BlIjoib3BlbmlkIHBheW1lbnRzIiwiaXNzIjoib2F1dGgyY2xpZW50XzAwMDA5cHAxQ1J0NEthcklaTTdQcjEiLCJjbGllbnRfaWQiOiJvYXV0aDJjbGllbnRfMDAwMDlwcDFDUnQ0S2FySVpNN1ByMSIsInJlc3BvbnNlX3R5cGUiOiJjb2RlIGlkX3Rva2VuIiwicmVkaXJlY3RfdXJpIjoiaHR0cHM6Ly9hdXRoLnlhcGlseS5jb20vIiwic3RhdGUiOiI2ZjM5MjZkMDkzNzI0NTM1OTVmYWMzZmE2NzU0ZTAxYyIsImNsYWltcyI6eyJpZF90b2tlbiI6eyJhY3IiOnsidmFsdWVzIjpbInVybjpvcGVuYmFua2luZzpwc2QyOnNjYSJdLCJlc3NlbnRpYWwiOnRydWV9LCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOnsidmFsdWUiOiJvYnBpc3Bkb21lc3RpY3BheW1lbnRjb25zZW50XzAwMDA5eG9ESXJMQnowYlVma0tOaFIiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7InZhbHVlIjoib2JwaXNwZG9tZXN0aWNwYXltZW50Y29uc2VudF8wMDAwOXhvRElyTEJ6MGJVZmtLTmhSIiwiZXNzZW50aWFsIjp0cnVlfX19LCJub25jZSI6IjZmMzkyNmQwOTM3MjQ1MzU5NWZhYzNmYTY3NTRlMDFjIiwianRpIjoiMjJhZTRmODgtNjgzZi00NWYwLTgxNDYtZjdhN2U3ZWY2NzA5IiwiaWF0IjoxNTk2NjIyMjY2LCJleHAiOjE1OTY2MjQwNjZ9.fGz7g_tE_oAtbvBqmbcvzBdGFL79NIv2mA99ZjvMVlqqqVW1mohY2_1MaRE27w5WVzrOYYe1h-gCKTA95m5znZFD3eWgDLiqTTaB08KZrv4Vi0tmzsITDcXSLNQKj3N8znck7iTPUYHTqVZyMcoxV7e3hPHrSexVzo5eVtaIX5AHAG0tu3_qWyIRe7h48D55jJGyc7bD7bt5Q73jsEgz4sYos15pOYkxd7W-74arLS10Pube-SjGWoBVFXtPj_pwaxbj9Ub-P7WuhMw5r9Qvaf0rB0Yg0QdTiaCvn05oRD7ssVTezGqHEf5aDu3HXHBfD45f0siFxo5a8QGM2fGaYA",
+         *         "qrCodeUrl": "https://images.yapily.com/image/080b9721-9cc5-4ec5-a882-8aab5c67752a/1596622266?size=0"
+         *     }
+         * }
+         */
+
+        String authorization = webClient.build()
+                .post()
+                .uri(BASE_URI + "/payment-auth-requests")
+                .header("Authorization", "Basic " + generateToken())
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .body(Mono.just(getPayment()), PaymentAuthorizationBody.class)
+                .retrieve()
+                .bodyToMono(Object.class)
+                .retryWhen(Retry.fixedDelay(3, Duration.ofMillis(100)))
+                .doOnError(error -> log.error("An error has occurred {}", error.getMessage()))
+                .block().toString();
+
+
+        return authorization ;
+    }
+
+    public PaymentAuthorizationBody getPayment() throws JsonProcessingException {
         PaymentAuthorizationBody paymentAuthorizationBody = new PaymentAuthorizationBody();
         paymentAuthorizationBody.setApplicationUserId(this.client_id);
         paymentAuthorizationBody.setInstitutionId(this.institutionId);
         paymentAuthorizationBody.setCallback(this.callback);
+
+        log.info("payment body created");
+        ObjectMapper objectMapper = new ObjectMapper();
+        try{
+            String jsonBodyOfPaymentReq = objectMapper.writeValueAsString(paymentAuthorizationBody);
+            log.info(jsonBodyOfPaymentReq);
+        }catch(IOException e){
+            e.printStackTrace();
+
+        }
+
+
 
         return paymentAuthorizationBody;
 
@@ -110,9 +216,9 @@ public class PaymentServiceImpl implements PaymentService {
         basicAuth.setPassword(APPLICATION_SECRET);
     }
 
-    public void getInstitutionsWithSdk() {
+    public void getInstitutionsWithSdk() throws ApiException {
         InstitutionsApi institutionsApi = new InstitutionsApi();
-        List<Institution> institutions = institutionsApi.getInstitutionsUsingGET().getData();
+        List<Institution> institutions = institutionsApi.getInstitutionsUsingGET("1.0").getData();
     }
 
     public void loginWithSdkForMultipleApplicationCases() {
@@ -126,21 +232,16 @@ public class PaymentServiceImpl implements PaymentService {
         institutionsApi.setApiClient(applicationClient);
     }
 
-    public void getUrlwitSdk(){
+    public void getUrlwitSdk() throws ApiException {
         final AccountsApi accountsApi = new AccountsApi();
-          AccountAuthorisationRequest accountAuthorisationRequest = new AccountAuthorisationRequest();
+        AccountAuthorisationRequest accountAuthorisationRequest = new AccountAuthorisationRequest();
         accountAuthorisationRequest.setApplicationUserId(APPLICATION_ID);
         accountAuthorisationRequest.setInstitutionId(institutionId);
 /**
  * Use the defaults
  */
         accountAuthorisationRequest.setAccountRequest(new AccountRequest());
-        ApiResponseOfAuthorisationRequestResponse authorizationResponse = accountsApi.initiateAccountRequestUsingPOST(accountAuthorisationRequest, null, null, null);
+        ApiResponseOfAuthorisationRequestResponse authorizationResponse = accountsApi.initiateAccountRequestUsingPOST(accountAuthorisationRequest, "1.0", null, null, null);
         String directUrl = authorizationResponse.getData().getAuthorisationUrl();
-    }
-
-    public static void main(String[] args) {
-        PaymentServiceImpl  paymentService = new PaymentServiceImpl();
-        paymentService.getInstitutionsWithSdk();
     }
 }
