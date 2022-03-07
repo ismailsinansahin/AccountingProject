@@ -18,3 +18,17 @@ spring:
       server:
         native:
           search-locations: classpath:/config
+
+##spring:
+#  profiles: local
+#  cloud:
+#    config:
+#      uri: http://localhost:8888/
+#      failFast: true
+#---
+##spring:
+#  profiles: dev
+#  cloud:
+#    config:
+#      uri: http://localhost:8888/
+#      failFast: true
