@@ -53,10 +53,15 @@ public class PaymentController {
         log.info("Authentication request");
         return ResultEnvelope.ok(this.paymentService.createPaymentAuthorization());
     }
-    @GetMapping("/consent-for-payment/{userUUID}/{consents}")
-    public ResultEnvelope getconsent(@PathVariable String userUUID, @RequestParam String consents) throws JsonProcessingException {
+    @GetMapping("/consent-token-for-payment")
+    public ResultEnvelope getConsent() throws JsonProcessingException {
+       // @PathVariable String userUUID, @RequestParam String instutionId
+
         log.info("Consent Token request");
-        return ResultEnvelope.ok(this.paymentService.createPaymentAuthorization());
+        String body = paymentService.getConsent();
+
+        return ResultEnvelope.ok(body);
+
     }
 
 

@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -53,6 +55,7 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
     private final String client_id = "3fda055a-77f7-4496-a93e-adbc39b39011";
     private final String client_secret = "40316b6d-4656-409c-bd1b-ac1f11738ae8";
     private final String applicatonUserId = "tommy@gmail.com";
+    private final String userUUID = "5f9965bc-175c-4654-ba8f-898f65cd37c0";
 
     //These lines are for Yapily
     private final String APPLICATION_ID = client_id;
@@ -225,9 +228,32 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
         return authorization ;
     }
 
+    @Override
+    public String getConsent() {
+
+        return
+        webClient.build()
+                .get()
+                .uri(uriBuilder -> {
+                    return uriBuilder
+                            .path("/users/"+this.userUUID+"/consents")
+                            .queryParam("institutionId",this.institutionId)
+                    .build();
+                })
+                .header("Authorization","Basic "+generateToken())
+                .header(HttpHeaders.CONTENT_TYPE,MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .bodyToMono(Object.class)
+                .retryWhen(Retry.fixedDelay(3, Duration.ofMillis(100)))
+                .doOnError(error -> log.error("An error has occurred while getting concent token {}", error.getMessage()))
+                .block().toString();
+
+
+    }
+
     public PaymentAuthorizationBody getPayment() throws JsonProcessingException {
 
-PaymentAuthorizationBody paymentAuthorizationBody = new PaymentAuthorizationBody();
+        PaymentAuthorizationBody paymentAuthorizationBody = new PaymentAuthorizationBody();
         log.info("payment body created by getpaymentBody : ");
         ObjectMapper objectMapper = new ObjectMapper();
         try{
@@ -242,9 +268,9 @@ PaymentAuthorizationBody paymentAuthorizationBody = new PaymentAuthorizationBody
 
     public void loginWithSdk() {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-// Configure the API authentication
+        // Configure the API authentication
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-// Replace these demo constants with your application credentials
+        // Replace these demo constants with your application credentials
         basicAuth.setUsername(APPLICATION_ID);
         basicAuth.setPassword(APPLICATION_SECRET);
     }
@@ -256,9 +282,9 @@ PaymentAuthorizationBody paymentAuthorizationBody = new PaymentAuthorizationBody
 
     public void loginWithSdkForMultipleApplicationCases() {
         ApiClient applicationClient = new ApiClient();
-// Configure the API authentication
+        // Configure the API authentication
         HttpBasicAuth basicAuth = (HttpBasicAuth) applicationClient.getAuthentication("basicAuth");
-// Replace these demo constants with your application credentials
+        // Replace these demo constants with your application credentials
         basicAuth.setUsername(APPLICATION_ID);
         basicAuth.setPassword(APPLICATION_SECRET);
         InstitutionsApi institutionsApi = new InstitutionsApi();

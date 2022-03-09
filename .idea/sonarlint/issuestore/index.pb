@@ -27,7 +27,3 @@ D
 service-user/pom.xml,3/6/36c1aae2fe34f59bbf5eeb50d0e296b90d906748
 ˆ
 Xservice-product/src/main/java/com/cydeo/serviceproduct/repository/ProductRepository.java,8/a/8a2323271be4d55d0d3860214045731a15071943
-Q
-!service-common/Docker-Compose.yml,1/d/1d1a53a41be3df075e066bc0e866bbe321ae4393
-R
-"service-common/docker-compose.yaml,4/4/44e3948c1a10e70e5367b69b580ae2c87f17f5f3

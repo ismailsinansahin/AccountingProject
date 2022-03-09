@@ -15,5 +15,7 @@ public interface PaymentService {
     PaymentResponse makePayment();
     void authForPayment();
     String createPaymentAuthorization() throws JsonProcessingException;
+    String  getConsent();
+
 
 }
