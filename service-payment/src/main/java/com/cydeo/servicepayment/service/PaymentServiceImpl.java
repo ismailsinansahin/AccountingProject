@@ -38,21 +38,25 @@ import java.util.List;
 @Slf4j
 public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailForService {
 
-    PaymentAuthorizationRequest paymentAuthorizationRequest = new PaymentAuthorizationRequest();
 
-    private final String BASE_URI = "https://api.yapily.com";
-    private final String client_id = "3fda055a-77f7-4496-a93e-adbc39b39011";
-    private final String client_secret = "40316b6d-4656-409c-bd1b-ac1f11738ae8";
-    //These lines are for Yapily
-    private final String APPLICATION_ID = client_id;
-    private final String APPLICATION_SECRET = client_secret;
+
+
     @Autowired
     private WebClient.Builder webClient;
     @Autowired
     private ObjectMapper jacksonMapper;
+
     private String institutionId = "modelo-sandbox";
     private String callback = "https://display-parameters.com/";
 
+    private final String BASE_URI = "https://api.yapily.com";
+    private final String client_id = "3fda055a-77f7-4496-a93e-adbc39b39011";
+    private final String client_secret = "40316b6d-4656-409c-bd1b-ac1f11738ae8";
+    private final String applicatonUserId = "tommy@gmail.com";
+
+    //These lines are for Yapily
+    private final String APPLICATION_ID = client_id;
+    private final String APPLICATION_SECRET = client_secret;
 
 // @Value("${client_secret}")
 // private String client_secret;
@@ -95,7 +99,7 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
 
     public String accountAuth() throws JsonProcessingException {
 
-        log.info(getPayment().toString());
+//        log.info(getPayment().toString());
         return
                 webClient.build()
                         .post()
@@ -198,7 +202,7 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
                     .uri(BASE_URI + "/payment-auth-requests")
                     .header("Authorization", "Basic " + generateToken())
                     .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .body(Mono.just(getPayment()), PaymentAuthorizationBody.class)
+                    .body(Mono.just(getPaymentAuthorizationBody()), PaymentAuthorizationBody.class)
                     .retrieve()
                     .bodyToMono(Object.class)
                     .retryWhen(Retry.fixedDelay(3, Duration.ofMillis(100)))
@@ -210,7 +214,7 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
                     .uri(BASE_URI + "/payment-auth-requests")
                     .header("Authorization", "Basic " + generateToken())
                     .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .body(Mono.just(paymentAuthorizationRequest), PaymentAuthorizationRequest.class)
+                    .body(Mono.just(getPayment()), PaymentAuthorizationRequest.class)
                     .retrieve()
                     .bodyToMono(Object.class)
                     .retryWhen(Retry.fixedDelay(3, Duration.ofMillis(100)))
@@ -223,27 +227,7 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
 
     public PaymentAuthorizationBody getPayment() throws JsonProcessingException {
 
-        List<AccountIdentification> listOfAccounIdentification = new ArrayList<>();
-        PaymentAuthorizationBody paymentAuthorizationBody = new PaymentAuthorizationBody();
-        paymentAuthorizationBody.setApplicationUserId(this.client_id);
-        paymentAuthorizationBody.setInstitutionId(this.institutionId);
-
-        com.cydeo.servicepayment.dto.paymentReqBody.PaymentRequest paymentRequest = new com.cydeo.servicepayment.dto.paymentReqBody.PaymentRequest();
-        com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification accountIdentification1 = new com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification();
-        accountIdentification1.setIdentification("123456");
-        accountIdentification1.setType(com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification.TypeEnum.SORT_CODE);
-        com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification accountIdentification2 = new com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification();
-        accountIdentification1.setIdentification("12345678");
-        accountIdentification1.setType(AccountIdentification.TypeEnum.fromValue("ACCOUNT_NUMBER"));
-
-        listOfAccounIdentification.add(accountIdentification1);
-        listOfAccounIdentification.add(accountIdentification2);
-        paymentRequest.setPayee();
-
-        paymentAuthorizationBody.setPaymentRequest(paymentRequest);
-
-
-
+PaymentAuthorizationBody paymentAuthorizationBody = new PaymentAuthorizationBody();
         log.info("payment body created by getpaymentBody : ");
         ObjectMapper objectMapper = new ObjectMapper();
         try{
@@ -253,9 +237,6 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
             e.printStackTrace();
 
         }
-
-
-
         return paymentAuthorizationBody;
     }
 
@@ -299,26 +280,76 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
 
     @Override
     public Amount getAmount() {
-        return null;
+        //todo amount dynamic
+        Amount amount = new Amount();
+        amount.setAmount("10");
+        return amount;
     }
 
     @Override
     public Address getAddress() {
-        return null;
+        Address address= new Address();
+        return address;
     }
 
     @Override
     public Payee getPayee() {
-        return null;
+        Payee payee = new Payee();
+        payee.setAccountIdentifications(getAccountIdentificationList());
+        return payee;
     }
 
     @Override
     public PaymentRequest getPaymentRequest() {
-        return null;
+        PaymentRequest paymentRequest = new PaymentRequest();
+        log.info("PaymentRequest from Config  interface");
+        paymentRequest.setPayee(getPayee());
+        paymentRequest.setAmount(getAmount());
+        return paymentRequest;
     }
 
     @Override
     public PaymentAuthorizationBody getPaymentAuthorizationBody() {
-        return null;
+        PaymentAuthorizationBody paymentAuthorizationBody = new PaymentAuthorizationBody();
+
+        paymentAuthorizationBody.setApplicationUserId(this.applicatonUserId);
+        paymentAuthorizationBody.setInstitutionId(this.institutionId);
+        log.info("Payment Authorization Body from Config Interface");
+
+//        from config method
+        paymentAuthorizationBody
+                .setPaymentRequest(
+                        getPaymentRequest());
+
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try{
+            String jsonBodyOfPaymentReq = objectMapper.writeValueAsString(paymentAuthorizationBody);
+            log.info(jsonBodyOfPaymentReq);
+        }catch(IOException e){
+            e.printStackTrace();
+
+        }
+        return paymentAuthorizationBody;
+    }
+
+    @Override
+    public List<AccountIdentification> getAccountIdentificationList() {
+        List<AccountIdentification> listOfAccounIdentification = new ArrayList<>();
+
+
+        com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification accountIdentification1 = new com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification();
+        accountIdentification1.setIdentification("123456");
+        accountIdentification1.setType(com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification.TypeEnum.SORT_CODE);
+        com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification accountIdentification2 = new com.cydeo.servicepayment.dto.paymentReqBody.AccountIdentification();
+        accountIdentification2.setIdentification("12345678");
+        accountIdentification2.setType(AccountIdentification.TypeEnum.fromValue("ACCOUNT_NUMBER"));
+
+        listOfAccounIdentification.add(accountIdentification1);
+        listOfAccounIdentification.add(accountIdentification2);
+        log.info("Account Identification  from Config Interface");
+
+
+        return listOfAccounIdentification;
     }
 }

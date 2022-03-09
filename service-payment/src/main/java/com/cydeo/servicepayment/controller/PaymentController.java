@@ -53,6 +53,11 @@ public class PaymentController {
         log.info("Authentication request");
         return ResultEnvelope.ok(this.paymentService.createPaymentAuthorization());
     }
+    @GetMapping("/consent-for-payment/{userUUID}/{consents}")
+    public ResultEnvelope getconsent(@PathVariable String userUUID, @RequestParam String consents) throws JsonProcessingException {
+        log.info("Consent Token request");
+        return ResultEnvelope.ok(this.paymentService.createPaymentAuthorization());
+    }
 
 
     @GetMapping("/yapily/callback")
