@@ -14,6 +14,7 @@
         <module name="service-company" />
         <module name="server-config" />
         <module name="service-common" />
+        <module name="service-invoice" />
         <module name="service-payment" />
       </profile>
     </annotationProcessing>
@@ -26,6 +27,7 @@
       <module name="server-zipkin" target="11" />
       <module name="service-common" target="11" />
       <module name="service-company" target="11" />
+      <module name="service-invoice" target="11" />
       <module name="service-parent" target="11" />
       <module name="service-payment" target="11" />
       <module name="service-product" target="11" />
@@ -40,6 +42,7 @@
       <module name="server-zipkin" options="-parameters" />
       <module name="service-common" options="-parameters" />
       <module name="service-company" options="-parameters" />
+      <module name="service-invoice" options="-parameters" />
       <module name="service-parent" options="-parameters" />
       <module name="service-payment" options="-parameters" />
       <module name="service-product" options="-parameters" />
