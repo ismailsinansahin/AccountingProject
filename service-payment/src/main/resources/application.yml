@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: service-payment
+  config:
+    import: optional:configserver:http://localhost:8888
+    profile: native
+#server:
+#  port: 8010
+
+#spring:
+#  application:
+#      name: service-payment
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/accounting-app-company-db
+#    username: postgres
+#    password: 2754
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: true
+#    defer-datasource-initialization: true
+#  sql:
+#    init:
+#      mode: always
+#server:
+#  port: 8010
+

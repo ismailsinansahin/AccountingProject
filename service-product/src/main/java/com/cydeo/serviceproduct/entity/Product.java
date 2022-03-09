@@ -23,6 +23,8 @@ public class Product implements Serializable {
     private Long id;
     private String productName;
     private String description;
+
+
     private Long categoryId;
     private int qty;
     private int price;
@@ -30,6 +32,7 @@ public class Product implements Serializable {
     private Unit unit;
     private int lowLimitAlert;
     private int tax;
+
     private Long companyId;
     private Byte enabled;
     @Enumerated(EnumType.STRING)

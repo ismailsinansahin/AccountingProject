@@ -10,14 +10,18 @@
         <option value="$PROJECT_DIR$/service-common/pom.xml" />
         <option value="$PROJECT_DIR$/service-company/pom.xml" />
         <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/service-invoice/pom.xml" />
+        <option value="$PROJECT_DIR$/service-product/pom.xml" />
+        <option value="$PROJECT_DIR$/service-payment/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/server-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/server-hystrix/pom.xml" />
+      </set>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="jpab" />
   </component>
 </project>

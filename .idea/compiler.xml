@@ -15,6 +15,7 @@
         <module name="server-config" />
         <module name="service-common" />
         <module name="service-invoice" />
+        <module name="service-payment" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +29,7 @@
       <module name="service-company" target="11" />
       <module name="service-invoice" target="11" />
       <module name="service-parent" target="11" />
+      <module name="service-payment" target="11" />
       <module name="service-product" target="11" />
       <module name="service-user" target="11" />
     </bytecodeTargetLevel>
@@ -42,6 +44,7 @@
       <module name="service-company" options="-parameters" />
       <module name="service-invoice" options="-parameters" />
       <module name="service-parent" options="-parameters" />
+      <module name="service-payment" options="-parameters" />
       <module name="service-product" options="-parameters" />
       <module name="service-user" options="-parameters" />
     </option>
