@@ -32,7 +32,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto getProductById(Long id) {
+    public CategoryDto getCategoryById(Long id) {
         Category category = categoryRepository.findById(id).get();
 
         return modelMapper.map(category,CategoryDto.class);
@@ -54,10 +54,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto update(CategoryDto categoryDto) {
-        Category category = categoryRepository.findById(categoryDto.getId()).get();
+    public CategoryDto update(CategoryDto categoryDto, Long id) {
+//        Category category = categoryRepository.findById(id).get();
         Category map = modelMapper.map(categoryDto, Category.class);
-        map.setId(category.getId());
+        map.setId(id);
         return modelMapper.map(map,CategoryDto.class);
     }
 }

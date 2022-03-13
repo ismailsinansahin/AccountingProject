@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/categories")
 @Slf4j
@@ -25,14 +27,16 @@ public class CategoryContoller {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<ResponseWrapper> getAllCategories(){
+    public ResponseEntity<ResponseWrapper> getAllCategories() throws Exception {
 
-        return ResponseEntity.ok(new ResponseWrapper());
+        List<CategoryDto> categoryDtos = categoryService.listOfCompanyCategories(1L);// todo after sec
+        return ResponseEntity.ok(new ResponseWrapper("Category List",categoryDtos));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ResponseWrapper> getById(@PathVariable("id") Long id){
-        return ResponseEntity.ok(new ResponseWrapper());
+        CategoryDto categoryById = categoryService.getCategoryById(id);
+        return ResponseEntity.ok(new ResponseWrapper("Category retrieved",categoryById));
     }
 
     @PostMapping("/create")
@@ -44,6 +48,7 @@ public class CategoryContoller {
 
     @PutMapping("/edit/{id}")
     public ResponseEntity<ResponseWrapper> update(@RequestBody CategoryDto categoryDto, @PathVariable("id") Long id){
+        categoryService.update(categoryDto,id);
         return ResponseEntity.ok(new ResponseWrapper());
     }
 

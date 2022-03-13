@@ -9,9 +9,9 @@ import java.util.List;
 public interface CategoryService {
 
     List<CategoryDto> listOfCompanyCategories(Long CompanyId) throws Exception;
-    CategoryDto getProductById(Long id);
+    CategoryDto getCategoryById(Long id);
     CategoryDto save(CategoryDto productDto);
     String delete(Long productId);
-    CategoryDto update(CategoryDto dto);
+    CategoryDto update(CategoryDto dto, Long id);
 
 }
