@@ -20,6 +20,7 @@
         <module>../service-company</module>
         <module>../service-invoice</module>
         <module>../service-product</module>
+        <module>../service-payment</module>
 
     </modules>
 
@@ -27,7 +28,7 @@
     <artifactId>service-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>service-parent</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Parent Pom file</description>
 
     <properties>
         <java.version>11</java.version>

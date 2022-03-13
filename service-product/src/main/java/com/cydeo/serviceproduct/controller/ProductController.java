@@ -27,11 +27,11 @@ public class ProductController {
 
 
     @GetMapping({"/test","/"})
-    public ResponseEntity<String> getProductList() {
+    public ResultEnvelope<String> getProductList() {
 
         String initialResponse ="This is TEST RESPONSE from Product Service" ;
 
-        return ResponseEntity.ok(initialResponse);
+        return ResultEnvelope.ok(initialResponse);
     }
 
     /**
@@ -40,17 +40,13 @@ public class ProductController {
      */
     @GetMapping("/list")
     public ResultEnvelope<ProductDto> getAllCompanyProductList() throws Exception {
-
-
         //todo
             List<ProductDto> productDtos = productService.listOfCompanyProducts(1L);
-
             return ResultEnvelope.ok(productDtos);
 
     }
     @GetMapping("/all-product-list")
     public ResultEnvelope<ProductDto> getAllProducts() throws Exception {
-
 
         List<ProductDto> productDtos = productService.getAllProducts();
 
@@ -60,14 +56,12 @@ public class ProductController {
 
     @GetMapping("/get/{productid}")
     public  ResultEnvelope<ProductDto> getProductbyId(@RequestParam("productid") Long productId){
-
-
         ProductDto productDto = productService.getProductById(productId);
 
         return ResultEnvelope.ok(productDto);
     }
 
-    @PostMapping("/save")
+    @PostMapping("/create")
     public ResultEnvelope<ProductDto> save(@RequestBody ProductDto productDto){
         ProductDto save = productService.save(productDto);
         return ResultEnvelope.ok(save);
@@ -80,12 +74,9 @@ public class ProductController {
         return ResultEnvelope.ok(delete);
     }
 
-    @PostMapping("/edit/{productid}")
+    @PutMapping("/edit/{productid}")
     public  ResultEnvelope<ProductDto> editProductbyId(@RequestParam ProductDto productDto) {
-
-
         ProductDto product = productService.update(productDto);
-
         return ResultEnvelope.ok(product);
     }
 }

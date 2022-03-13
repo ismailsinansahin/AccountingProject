@@ -37,6 +37,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductDto> getAllProducts() throws Exception {
 
+        //need pagination
         List<Product> allProducts = productRepository.findAll();
 
         return allProducts.stream().map(e->modelMapper.map(e,ProductDto.class)).collect(Collectors.toList());

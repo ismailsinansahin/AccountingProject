@@ -1,12 +1,14 @@
 package com.cydeo.serviceproduct.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -14,13 +16,14 @@ import javax.persistence.*;
 @Data
 @Table(name = "category")
 @Where(clause = "is_deleted = false")
-public class Category {
+public class Category extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
     private Long companyId;
     private boolean enable;
     private String description;
-    private Long prodcutId;
+
+    @JsonIgnoreProperties
+    @OneToMany(mappedBy = "category")
+    private List<Product> product;
 }
