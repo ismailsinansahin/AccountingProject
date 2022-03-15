@@ -10,6 +10,8 @@ import com.cydeo.serviceinvoice.service.InvoiceService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,6 +19,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.jpa.repository.Temporal;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -37,7 +40,7 @@ class InvoiceControllerTest {
     void testGetAll() throws Exception {
 
         InvoiceDto invoice = new InvoiceDto();
-        invoice.setDate(LocalDate.ofEpochDay(1L));
+//        invoice.setDate(LocalDate.now());
         invoice.setEnabled(true);
         invoice.setClientVendorId(123L);
         invoice.setCompanyId(123L);
@@ -50,6 +53,7 @@ class InvoiceControllerTest {
         invoiceList.add(invoice);
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(invoice);
+        System.out.println("json = " + json);
         when(this.invoiceService.getAll()).thenReturn(invoiceList);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/v1/invoices/all");
         MockMvcBuilders.standaloneSetup(this.invoiceController)
