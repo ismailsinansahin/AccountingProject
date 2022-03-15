@@ -1,13 +1,10 @@
 package com.cydeo.serviceproduct.controller;
 
-import com.cydeo.serviceproduct.dto.ProductDto;
+import com.cydeo.servicecommon.contract.ProductDto;
 import com.cydeo.serviceproduct.dto.ResultEnvelope;
-import com.cydeo.serviceproduct.entity.Product;
 import com.cydeo.serviceproduct.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

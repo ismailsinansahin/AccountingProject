@@ -9,7 +9,7 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.cydeo.serviceproduct.dto.ProductDto;
+import com.cydeo.servicecommon.contract.ProductDto;
 import com.cydeo.serviceproduct.entity.Category;
 import com.cydeo.serviceproduct.entity.Product;
 import com.cydeo.serviceproduct.enums.ProductStatus;

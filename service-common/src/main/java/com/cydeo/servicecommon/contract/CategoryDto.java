@@ -1,15 +1,14 @@
-package com.cydeo.serviceproduct.dto;
+package com.cydeo.servicecommon.contract;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Where;
 
-import javax.persistence.*;
+
+
 
 
 @AllArgsConstructor
@@ -25,7 +24,7 @@ public class CategoryDto {
     private boolean enable;
     private String description;
 
+    @JsonIgnoreProperties
     @JsonProperty("product")
-    @JsonIgnore
-    private ProductDto productDto;
+     private ProductDto productId;
 }

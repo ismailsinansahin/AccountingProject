@@ -2,8 +2,7 @@ package com.cydeo.serviceproduct.controller;
 
 
 import com.cydeo.servicecommon.general.ResponseWrapper;
-import com.cydeo.serviceproduct.dto.CategoryDto;
-import com.cydeo.serviceproduct.dto.ResultEnvelope;
+import com.cydeo.servicecommon.contract.CategoryDto;
 import com.cydeo.serviceproduct.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,14 +45,14 @@ public class CategoryContoller {
         return ResponseEntity.ok(new ResponseWrapper("New Category created",save));
     }
 
-    @PutMapping("/edit/{id}")
-    public ResponseEntity<ResponseWrapper> update(@RequestBody CategoryDto categoryDto, @PathVariable("id") Long id){
+    @PutMapping("/edit")
+    public ResponseEntity<ResponseWrapper> update(@RequestParam("category-id") Long id, CategoryDto categoryDto)  {
         categoryService.update(categoryDto,id);
         return ResponseEntity.ok(new ResponseWrapper());
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Object> delete(@PathVariable("id") Long id){
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> delete(@RequestParam("category-id") Long id){
         categoryService.delete(id);
         return ResponseEntity.noContent().build();
     }

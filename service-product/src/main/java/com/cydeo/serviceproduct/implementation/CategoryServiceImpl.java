@@ -1,17 +1,14 @@
 package com.cydeo.serviceproduct.implementation;
 
-import com.cydeo.servicecommon.contract.CompanyDto;
-import com.cydeo.serviceproduct.dto.CategoryDto;
+import com.cydeo.servicecommon.contract.CategoryDto;
 import com.cydeo.serviceproduct.entity.Category;
 import com.cydeo.serviceproduct.repository.CategoryRepository;
 import com.cydeo.serviceproduct.service.CategoryService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -55,9 +52,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto update(CategoryDto categoryDto, Long id) {
-//        Category category = categoryRepository.findById(id).get();
+
+        categoryDto.setId(id);
         Category map = modelMapper.map(categoryDto, Category.class);
-        map.setId(id);
         return modelMapper.map(map,CategoryDto.class);
     }
 }

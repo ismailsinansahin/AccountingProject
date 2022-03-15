@@ -8,7 +8,7 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.cydeo.serviceproduct.dto.CategoryDto;
+import com.cydeo.servicecommon.contract.CategoryDto;
 import com.cydeo.serviceproduct.entity.Category;
 import com.cydeo.serviceproduct.repository.CategoryRepository;
 
