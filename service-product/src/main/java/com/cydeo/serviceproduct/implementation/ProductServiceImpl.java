@@ -1,17 +1,14 @@
 package com.cydeo.serviceproduct.implementation;
 
-import com.cydeo.serviceproduct.dto.ProductDto;
+import com.cydeo.servicecommon.contract.ProductDto;
 import com.cydeo.serviceproduct.entity.Product;
 import com.cydeo.serviceproduct.repository.ProductRepository;
 import com.cydeo.serviceproduct.service.ProductService;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.internal.util.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,6 +34,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductDto> getAllProducts() throws Exception {
 
+        //need pagination
         List<Product> allProducts = productRepository.findAll();
 
         return allProducts.stream().map(e->modelMapper.map(e,ProductDto.class)).collect(Collectors.toList());

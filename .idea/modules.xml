@@ -6,12 +6,12 @@
       <module fileurl="file://$PROJECT_DIR$/server-config/server-config.iml" filepath="$PROJECT_DIR$/server-config/server-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/server-naming/server-naming.iml" filepath="$PROJECT_DIR$/server-naming/server-naming.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-common/service-common.iml" filepath="$PROJECT_DIR$/service-common/service-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-company/service-company.iml" filepath="$PROJECT_DIR$/service-company/service-company.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-invoice/service-invoice.iml" filepath="$PROJECT_DIR$/service-invoice/service-invoice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-parent/service-parent.iml" filepath="$PROJECT_DIR$/service-parent/service-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-payment/service-payment.iml" filepath="$PROJECT_DIR$/service-payment/service-payment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-product/service-product.iml" filepath="$PROJECT_DIR$/service-product/service-product.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-user/service-user.iml" filepath="$PROJECT_DIR$/service-user/service-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-company/service-company.iml" filepath="$PROJECT_DIR$/service-company/service-company.iml" group="service-parent and modules" />
+      <module fileurl="file://$PROJECT_DIR$/service-invoice/service-invoice.iml" filepath="$PROJECT_DIR$/service-invoice/service-invoice.iml" group="service-parent and modules" />
+      <module fileurl="file://$PROJECT_DIR$/service-parent/service-parent.iml" filepath="$PROJECT_DIR$/service-parent/service-parent.iml" group="service-parent and modules" />
+      <module fileurl="file://$PROJECT_DIR$/service-payment/service-payment.iml" filepath="$PROJECT_DIR$/service-payment/service-payment.iml" group="service-parent and modules" />
+      <module fileurl="file://$PROJECT_DIR$/service-product/service-product.iml" filepath="$PROJECT_DIR$/service-product/service-product.iml" group="service-parent and modules" />
+      <module fileurl="file://$PROJECT_DIR$/service-user/service-user.iml" filepath="$PROJECT_DIR$/service-user/service-user.iml" group="service-parent and modules" />
     </modules>
   </component>
 </project>

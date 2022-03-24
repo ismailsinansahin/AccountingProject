@@ -1,9 +1,10 @@
-package com.cydeo.serviceproduct.dto;
+package com.cydeo.servicecommon.contract;
 
-import com.cydeo.serviceproduct.enums.ProductStatus;
-import com.cydeo.serviceproduct.enums.Unit;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+
 
 import java.io.Serializable;
 
@@ -17,17 +18,19 @@ public class ProductDto implements Serializable {
 
 
     private Long id;
+
     private String productName;
     private String description;
-    private Long categoryId;
+    @JsonProperty("category")
+    private  CategoryDto categoryDto;
     private int qty;
     private int price;
-    private Unit unit;
+    private String unit;
     private int lowLimitAlert;
     private int tax;
     private Long companyId;
     private Byte enabled;
-    private ProductStatus productStatus;
+    private String productStatus;
     private boolean isDeleted= false;
 
 }
