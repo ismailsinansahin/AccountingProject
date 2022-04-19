@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/service-parent/service-parent.iml" filepath="$PROJECT_DIR$/service-parent/service-parent.iml" group="service-parent and modules" />
       <module fileurl="file://$PROJECT_DIR$/service-payment/service-payment.iml" filepath="$PROJECT_DIR$/service-payment/service-payment.iml" group="service-parent and modules" />
       <module fileurl="file://$PROJECT_DIR$/service-product/service-product.iml" filepath="$PROJECT_DIR$/service-product/service-product.iml" group="service-parent and modules" />
+      <module fileurl="file://$PROJECT_DIR$/service-report/service-report.iml" filepath="$PROJECT_DIR$/service-report/service-report.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-user/service-user.iml" filepath="$PROJECT_DIR$/service-user/service-user.iml" group="service-parent and modules" />
     </modules>
   </component>

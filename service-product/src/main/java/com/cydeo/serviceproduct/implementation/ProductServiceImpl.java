@@ -2,9 +2,9 @@ package com.cydeo.serviceproduct.implementation;
 
 import com.cydeo.servicecommon.contract.ProductDto;
 import com.cydeo.serviceproduct.entity.Product;
+import com.cydeo.serviceproduct.mapper.MapperUtil;
 import com.cydeo.serviceproduct.repository.ProductRepository;
 import com.cydeo.serviceproduct.service.ProductService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
     ProductRepository productRepository;
 
     @Autowired
-    ModelMapper modelMapper;
+    MapperUtil mapperUtil;
 
     @Override
     public List<ProductDto> listOfCompanyProducts(Long companyId) throws Exception {
@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
 
         if (!products.isEmpty()) throw new Exception("There is no product listed under this company yet");
 
-         return products.stream().map(e -> modelMapper.map(e, ProductDto.class)).collect(Collectors.toList());
+         return products.stream().map(e -> mapperUtil.convert(e,new ProductDto())).collect(Collectors.toList());
 
     }
 
@@ -37,27 +37,28 @@ public class ProductServiceImpl implements ProductService {
         //need pagination
         List<Product> allProducts = productRepository.findAll();
 
-        return allProducts.stream().map(e->modelMapper.map(e,ProductDto.class)).collect(Collectors.toList());
+        return allProducts.stream().map(e->mapperUtil.convert(e,new ProductDto())).collect(Collectors.toList());
 
     }
 
     @Override
     public ProductDto getProductById(Long id) {
-        Product byId = productRepository.getById(id);
-        return modelMapper.map(byId,ProductDto.class);
+        Product byId = productRepository.findById(id).get();
+        ProductDto mapped = mapperUtil.convert(byId, new ProductDto());
+        return mapped;
     }
 
     @Override
     public ProductDto save(ProductDto productDto) {
-        Product map = modelMapper.map(productDto, Product.class);
+        Product map = mapperUtil.convert(productDto, new Product());
         Product save = productRepository.save(map);
-        return modelMapper.map(save,ProductDto.class);
+        return mapperUtil.convert(save,new ProductDto());
     }
 
     @Override
     public String delete(Long productId) {
         Product byId = productRepository.getById(productId);
-        byId.setDeleted(true);
+        byId.setIsDeleted(true);
         productRepository.save(byId);
         return productRepository.getById(byId.getId()).getProductName()+ "Deleted Successfully";
     }
@@ -65,10 +66,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDto update(ProductDto dto) {
 
-        Product map = modelMapper.map(dto, Product.class);
+        Product map = mapperUtil.convert(dto, new Product());
         Product byId = productRepository.getById(dto.getId());
         byId.setId(map.getId());
 
-        return  modelMapper.map(byId,ProductDto.class);
+        return  mapperUtil.convert(byId,new ProductDto());
     }
 }

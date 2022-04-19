@@ -55,7 +55,7 @@ class CategoryServiceImplTest {
         category.setId(123L);
         category.setLastUpdateUserId(123L);
         category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
-        category.setEnable(true);
+        category.setEnabled(true);
         category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
 
@@ -79,7 +79,7 @@ class CategoryServiceImplTest {
         category.setId(123L);
         category.setLastUpdateUserId(123L);
         category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
-        category.setEnable(true);
+        category.setEnabled(true);
         category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
 
@@ -91,7 +91,7 @@ class CategoryServiceImplTest {
         category1.setId(123L);
         category1.setLastUpdateUserId(123L);
         category1.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
-        category1.setEnable(true);
+        category.setEnabled(true);
         category1.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
         category1.setDescription("The characteristics of someone or something");
 
@@ -117,7 +117,7 @@ class CategoryServiceImplTest {
         category.setId(123L);
         category.setLastUpdateUserId(123L);
         category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
-        category.setEnable(true);
+        category.setEnabled(true);
         category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
         Optional<Category> ofResult = Optional.of(category);
@@ -137,7 +137,7 @@ class CategoryServiceImplTest {
         category.setId(123L);
         category.setLastUpdateUserId(123L);
         category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
-        category.setEnable(true);
+        category.setEnabled(true);
         category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
         Optional<Category> ofResult = Optional.of(category);

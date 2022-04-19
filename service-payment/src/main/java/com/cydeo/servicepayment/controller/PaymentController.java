@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @CrossOrigin
-@RequestMapping("/api/v1/payment")
+@RequestMapping("/api/v1/payment/yapily")
 public class PaymentController {
 
 //    @Autowired
@@ -28,11 +28,10 @@ public class PaymentController {
     private PaymentService paymentService;
 
     //this method works properly
-
     @GetMapping("/institutions/sdk")
     public ResultEnvelope<List<Institution>> getInstitutionswithsdk() throws ApiException, JsonProcessingException {
 
-        PaymentServiceImpl paymentService = new PaymentServiceImpl();
+        PaymentServiceImpl paymentService;
         paymentService.getInstitutionsWithSdk();
 //        var body = this.paymentService.
 //        log.info(body.toString());

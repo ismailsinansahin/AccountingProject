@@ -8,18 +8,15 @@ import com.cydeo.serviceinvoice.enums.InvoiceStatus;
 import com.cydeo.serviceinvoice.enums.InvoiceType;
 import com.cydeo.serviceinvoice.service.InvoiceService;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
+
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.jpa.repository.Temporal;
+
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -51,8 +48,9 @@ class InvoiceControllerTest {
 
         ArrayList<InvoiceDto> invoiceList = new ArrayList<>();
         invoiceList.add(invoice);
-        ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(invoice);
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        String json = objectMapper.writeValueAsString(invoice);
+        String json = "";
         System.out.println("json = " + json);
         when(this.invoiceService.getAll()).thenReturn(invoiceList);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/v1/invoices/all");

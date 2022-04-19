@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="accounting-app-db" uuid="8ac983de-da07-484f-ac95-db911ed0077d">
-      <driver-ref>postgresql</driver-ref>
+    <data-source source="LOCAL" name="127.0.01" uuid="7e469d24-f0ca-4f4f-9012-a0e608fc2d05">
+      <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <schema-control>AUTOMATIC</schema-control>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/accounting-app-db</jdbc-url>
+      <remarks>localhostmysqldatabse</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/accounting</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="accountings3db@s.amazonaws.com" uuid="941e0c11-f963-41df-a55d-c3a7c709ac5a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://accountings3db.cdwb5j8qoo5x.us-east-1.rds.amazonaws.com:3306/accounting-test-db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

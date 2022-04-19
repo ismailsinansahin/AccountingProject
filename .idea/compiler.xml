@@ -10,6 +10,7 @@
         <module name="server-naming" />
         <module name="service-user" />
         <module name="service-product" />
+        <module name="service-report" />
         <module name="api-gateway" />
         <module name="service-company" />
         <module name="server-config" />
@@ -31,6 +32,7 @@
       <module name="service-parent" target="11" />
       <module name="service-payment" target="11" />
       <module name="service-product" target="11" />
+      <module name="service-report" target="11" />
       <module name="service-user" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -46,6 +48,7 @@
       <module name="service-parent" options="-parameters" />
       <module name="service-payment" options="-parameters" />
       <module name="service-product" options="-parameters" />
+      <module name="service-report" options="-parameters" />
       <module name="service-user" options="-parameters" />
     </option>
   </component>

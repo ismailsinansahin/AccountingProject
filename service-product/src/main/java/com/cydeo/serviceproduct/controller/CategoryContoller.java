@@ -28,7 +28,7 @@ public class CategoryContoller {
     @GetMapping("/list")
     public ResponseEntity<ResponseWrapper> getAllCategories() throws Exception {
 
-        List<CategoryDto> categoryDtos = categoryService.listOfCompanyCategories(1L);// todo after sec
+        List<CategoryDto> categoryDtos = categoryService.listOfCompanyCategories(9L);// todo after sec
         return ResponseEntity.ok(new ResponseWrapper("Category List",categoryDtos));
     }
 

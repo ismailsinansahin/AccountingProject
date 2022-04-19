@@ -21,10 +21,8 @@ public class CategoryDto {
 
     private Long id;
     private Long companyId;
-    private boolean enable;
+    private Boolean enabled;
     private String description;
 
-    @JsonIgnoreProperties
-    @JsonProperty("product")
-     private ProductDto productId;
+
 }

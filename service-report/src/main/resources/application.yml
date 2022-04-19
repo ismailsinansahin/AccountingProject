@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: service-report
+
+  config:
+    import: optional:configserver:http://localhost:8888
+    profile: native

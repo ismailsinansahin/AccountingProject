@@ -1,4 +1,4 @@
-package com.cydeo.serviceproduct.dto;
+package com.cydeo.servicecommon.general;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;

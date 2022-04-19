@@ -6,6 +6,7 @@ import lombok.*;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -17,28 +18,36 @@ import java.time.LocalDate;
 @Where(clause = "is_deleted=false")
 public class Company extends BaseEntity {
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "name", nullable = false, length = 125)
     private String name;
 
+    @Column(name = "address1")
     private String address1;
+
+    @Column(name = "address2")
     private String address2;
 
-    @Enumerated(EnumType.STRING)
-    private States stateName;
+    @Column(name = "zip")
+    private String zip;
 
-    private String zipCode;
-
+    @Column(name = "representative", length = 100)
     private String representative;
 
+    @Column(name = "email")
     private String email;
 
-    private String phone;
-
+    @Column(name = "establishment_date")
     private LocalDate establishmentDate;
 
+    @Column(name = "enabled")
     private Boolean enabled;
+
+    @Column(name = "phone", length = 20)
+    private String phone;
 
     @Enumerated(EnumType.STRING)
     private CompanyStatus companyStatus;
+
+
 
 }
