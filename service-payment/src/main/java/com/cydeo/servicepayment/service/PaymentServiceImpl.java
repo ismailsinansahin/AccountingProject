@@ -65,11 +65,7 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
 // @Value("${client_secret}")
 // private String client_secret;
 
-    public static void main(String[] args) throws ApiException {
 
-        PaymentServiceImpl paymentService = new PaymentServiceImpl();
-        paymentService.getInstitutionsWithSdk();
-    }
 
     public String generateToken() {
 

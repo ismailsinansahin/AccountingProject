@@ -31,11 +31,10 @@ public class PaymentController {
     @GetMapping("/institutions/sdk")
     public ResultEnvelope<List<Institution>> getInstitutionswithsdk() throws ApiException, JsonProcessingException {
 
-        PaymentServiceImpl paymentService;
-        paymentService.getInstitutionsWithSdk();
+//        paymentService.getInstitutionsWithSdk();
 //        var body = this.paymentService.
 //        log.info(body.toString());
-        return ResultEnvelope.ok(paymentService.getPayment().getInstitutionId());
+        return ResultEnvelope.ok(paymentService.getInstitutions());
     }
 
 

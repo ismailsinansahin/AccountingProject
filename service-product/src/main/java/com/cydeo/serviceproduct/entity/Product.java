@@ -55,23 +55,6 @@ public class Product extends BaseEntity {
 
 
 
-//    private String name;
-//    private String description;
-//
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "category_id")
-//    private Category category;
-//    private int qty;
-//    private int price;
-//    @Enumerated(EnumType.STRING)
-//    private Unit unit;
-//    private int lowLimitAlert;
-//    private int tax;
-//
-//    private Long companyId;
-//    private Byte enabled;
-//    @Enumerated(EnumType.STRING)
-//    private ProductStatus productStatus;
+
 
 }

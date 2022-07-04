@@ -54,13 +54,13 @@ class ProductServiceImplTest {
         Category category = new Category();
         category.setProduct(new ArrayList<>());
         category.setCompanyId(123L);
-        category.setInsertUserId(123L);
+        category.setCreated_by(123L);
         category.setIsDeleted(true);
         category.setId(123L);
-        category.setLastUpdateUserId(123L);
-        category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_by(123L);
+        category.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setEnabled(true);
-        category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
 
         Product product = new Product();
@@ -68,19 +68,19 @@ class ProductServiceImplTest {
         product.setCategoryId(category);
         product.setTax(0);
         product.setIsDeleted(false);
-        product.setLastUpdateUserId(123L);
+        product.setUpdated_by(123L);
         product.setProductStatus(ProductStatus.ACTIVE);
-        product.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         product.setDescription("The characteristics of someone or something");
         product.setEnabled(true);
         product.setCompanyId(123L);
         product.setUnit(Unit.LIBRE);
-        product.setInsertUserId(123L);
+        product.setCreated_by(123L);
         product.setIsDeleted(true);
         product.setId(123L);
         product.setProductName("Product Name");
         product.setQty(0);
-        product.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
 
 
         ArrayList<Product> productList = new ArrayList<>();
@@ -102,13 +102,13 @@ class ProductServiceImplTest {
         Category category = new Category();
         category.setProduct(new ArrayList<>());
         category.setCompanyId(123L);
-        category.setInsertUserId(123L);
+        category.setCreated_by(123L);
         category.setIsDeleted(true);
         category.setId(123L);
-        category.setLastUpdateUserId(123L);
-        category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_by(123L);
+        category.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setEnabled(true);
-        category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
 
         Product product = new Product();
@@ -116,19 +116,19 @@ class ProductServiceImplTest {
         product.setCategoryId(category);
         product.setTax(0);
         product.setIsDeleted(true);
-        product.setLastUpdateUserId(123L);
+        product.setUpdated_by(123L);
         product.setProductStatus(ProductStatus.ACTIVE);
-        product.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         product.setDescription("The characteristics of someone or something");
         product.setEnabled(true);
         product.setCompanyId(123L);
         product.setUnit(Unit.LIBRE);
-        product.setInsertUserId(123L);
+        product.setCreated_by(123L);
         product.setIsDeleted(true);
         product.setId(123L);
         product.setProductName("Product Name");
         product.setQty(0);
-        product.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
 
         ArrayList<Product> productList = new ArrayList<>();
         productList.add(product);
@@ -144,13 +144,13 @@ class ProductServiceImplTest {
         Category category = new Category();
         category.setProduct(new ArrayList<>());
         category.setCompanyId(123L);
-        category.setInsertUserId(123L);
+        category.setCreated_by(123L);
         category.setIsDeleted(true);
         category.setId(123L);
-        category.setLastUpdateUserId(123L);
-        category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_by(123L);
+        category.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setEnabled(true);
-        category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
 
         Product product = new Product();
@@ -158,30 +158,30 @@ class ProductServiceImplTest {
         product.setCategoryId(category);
         product.setTax(0);
         product.setIsDeleted(true);
-        product.setLastUpdateUserId(123L);
+        product.setUpdated_by(123L);
         product.setProductStatus(ProductStatus.ACTIVE);
-        product.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         product.setDescription("The characteristics of someone or something");
         product.setEnabled(true);
         product.setCompanyId(123L);
         product.setUnit(Unit.LIBRE);
-        product.setInsertUserId(123L);
+        product.setCreated_by(123L);
         product.setIsDeleted(true);
         product.setId(123L);
         product.setProductName("Product Name");
         product.setQty(0);
-        product.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
 
         Category category1 = new Category();
         category1.setProduct(new ArrayList<>());
         category1.setCompanyId(123L);
-        category1.setInsertUserId(123L);
+        category1.setCreated_by(123L);
         category1.setIsDeleted(true);
         category1.setId(123L);
-        category1.setLastUpdateUserId(123L);
-        category1.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category1.setUpdated_by(123L);
+        category1.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         product.setEnabled(true);
-        category1.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category1.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category1.setDescription("The characteristics of someone or something");
 
         Product product1 = new Product();
@@ -189,19 +189,19 @@ class ProductServiceImplTest {
         product1.setCategoryId(category1);
         product1.setTax(0);
         product.setIsDeleted(true);
-        product1.setLastUpdateUserId(123L);
+        product1.setUpdated_by(123L);
         product1.setProductStatus(ProductStatus.ACTIVE);
-        product1.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product1.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         product1.setDescription("The characteristics of someone or something");
         product1.setEnabled(true);
         product1.setCompanyId(123L);
         product1.setUnit(Unit.LIBRE);
-        product1.setInsertUserId(123L);
+        product1.setCreated_by(123L);
         product1.setIsDeleted(true);
         product1.setId(123L);
         product1.setProductName("Product Name");
         product1.setQty(0);
-        product1.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product1.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         
 
         ArrayList<Product> productList = new ArrayList<>();
@@ -220,13 +220,13 @@ class ProductServiceImplTest {
         ArrayList<Product> productList = new ArrayList<>();
         category.setProduct(productList);
         category.setCompanyId(123L);
-        category.setInsertUserId(123L);
+        category.setCreated_by(123L);
         category.setIsDeleted(true);
         category.setId(123L);
-        category.setLastUpdateUserId(123L);
-        category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_by(123L);
+        category.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setEnabled(true);
-        category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
 
         Product product = new Product();
@@ -234,19 +234,19 @@ class ProductServiceImplTest {
         product.setCategoryId(category);
         product.setTax(1);
         product.setIsDeleted(true);
-        product.setLastUpdateUserId(123L);
+        product.setUpdated_by(123L);
         product.setProductStatus(ProductStatus.ACTIVE);
-        product.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         product.setDescription("The characteristics of someone or something");
         product.setEnabled(true);
         product.setCompanyId(123L);
         product.setUnit(Unit.LIBRE);
-        product.setInsertUserId(123L);
+        product.setCreated_by(123L);
         product.setIsDeleted(true);
         product.setId(123L);
         product.setProductName("Product Name");
         product.setQty(1);
-        product.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
          
         when(this.productRepository.getById((Long) any())).thenReturn(product);
         ProductDto productDto = new ProductDto();
@@ -263,13 +263,13 @@ class ProductServiceImplTest {
         ArrayList<Product> productList = new ArrayList<>();
         category.setProduct(productList);
         category.setCompanyId(123L);
-        category.setInsertUserId(123L);
+        category.setCreated_by(123L);
         category.setIsDeleted(true);
         category.setId(123L);
-        category.setLastUpdateUserId(123L);
-        category.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_by(123L);
+        category.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setEnabled(true);
-        category.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category.setDescription("The characteristics of someone or something");
 
         Product product = new Product();
@@ -277,31 +277,31 @@ class ProductServiceImplTest {
         product.setCategoryId(category);
         product.setTax(1);
         product.setIsDeleted(true);
-        product.setLastUpdateUserId(123L);
+        product.setUpdated_by(123L);
         product.setProductStatus(ProductStatus.ACTIVE);
-        product.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         product.setDescription("The characteristics of someone or something");
         product.setEnabled(true);
         product.setCompanyId(123L);
         product.setUnit(Unit.LIBRE);
-        product.setInsertUserId(123L);
+        product.setCreated_by(123L);
         product.setIsDeleted(true);
         product.setId(123L);
         product.setProductName("Product Name");
         product.setQty(1);
-        product.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
          
 
         Category category1 = new Category();
         category1.setProduct(new ArrayList<>());
         category1.setCompanyId(123L);
-        category1.setInsertUserId(123L);
+        category1.setCreated_by(123L);
         category1.setIsDeleted(true);
         category1.setId(123L);
-        category1.setLastUpdateUserId(123L);
-        category1.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category1.setUpdated_by(123L);
+        category1.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category1.setEnabled(true);
-        category1.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        category1.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         category1.setDescription("The characteristics of someone or something");
 
         Product product1 = new Product();
@@ -309,19 +309,19 @@ class ProductServiceImplTest {
         product1.setCategoryId(category1);
         product1.setTax(1);
         product1.setIsDeleted(true);
-        product1.setLastUpdateUserId(123L);
+        product1.setUpdated_by(123L);
         product1.setProductStatus(ProductStatus.ACTIVE);
-        product1.setLastUpdateDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product1.setUpdated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         product1.setDescription("The characteristics of someone or something");
         product1.setEnabled(true);
         product1.setCompanyId(123L);
         product1.setUnit(Unit.LIBRE);
-        product1.setInsertUserId(123L);
+        product1.setCreated_by(123L);
         product1.setIsDeleted(true);
         product1.setId(123L);
         product1.setProductName("Product Name");
         product1.setQty(1);
-        product1.setInsertDateTime(LocalDateTime.of(1, 1, 1, 1, 1));
+        product1.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
         when(this.productRepository.save((Product) any())).thenReturn(product1);
         when(this.productRepository.getById((Long) any())).thenReturn(product);
         assertEquals("Product NameDeleted Successfully", this.productServiceImpl.delete(123L));
@@ -329,5 +329,8 @@ class ProductServiceImplTest {
         verify(this.productRepository).save((Product) any());
         assertEquals(productList, this.productServiceImpl.getAllProducts());
     }
+
+   
+
 }
 

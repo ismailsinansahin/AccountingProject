@@ -51,7 +51,7 @@ public class ProductController {
 
     }
 
-    @GetMapping
+    @GetMapping("/get")
     public  ResultEnvelope<ProductDto> getProductbyId(@RequestParam("productid") Long productId){
         ProductDto productDto = productService.getProductById(productId);
 
