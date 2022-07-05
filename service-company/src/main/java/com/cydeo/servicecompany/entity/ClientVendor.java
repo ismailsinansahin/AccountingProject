@@ -37,14 +37,14 @@ public class ClientVendor extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ClientVendorType type;
 
-    @Column(name="zipcode")
+    @Column(name="zip_code")
     private String zipCode;
 
     @Column(name="address")
     private String address;
 
-    @Column(name="state")
-    private String state;
+    @Column(name="state_id")
+    private int state;
 
     @Column(name="enabled")
     private Boolean enabled;

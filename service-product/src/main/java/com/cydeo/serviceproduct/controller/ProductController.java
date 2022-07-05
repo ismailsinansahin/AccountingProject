@@ -1,7 +1,7 @@
 package com.cydeo.serviceproduct.controller;
 
 import com.cydeo.servicecommon.contract.ProductDto;
-import com.cydeo.serviceproduct.dto.ResultEnvelope;
+import com.cydeo.servicecommon.general.ResultEnvelope;
 import com.cydeo.serviceproduct.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +36,14 @@ public class ProductController {
      *company products
      */
     @GetMapping("/list")
-    public ResultEnvelope<ProductDto> getAllCompanyProductList() throws Exception {
+    public ResultEnvelope<List<ProductDto>> getAllCompanyProductList() throws Exception {
         //todo
-            List<ProductDto> productDtos = productService.listOfCompanyProducts(1L);
+            List<ProductDto> productDtos = productService.listOfCompanyProducts(9L);
             return ResultEnvelope.ok(productDtos);
 
     }
     @GetMapping("/all-product-list")
-    public ResultEnvelope<ProductDto> getAllProducts() throws Exception {
+    public ResultEnvelope<List<ProductDto>> getAllProducts() throws Exception {
 
         List<ProductDto> productDtos = productService.getAllProducts();
 
@@ -51,7 +51,7 @@ public class ProductController {
 
     }
 
-    @GetMapping("/get/{productid}")
+    @GetMapping("/get")
     public  ResultEnvelope<ProductDto> getProductbyId(@RequestParam("productid") Long productId){
         ProductDto productDto = productService.getProductById(productId);
 

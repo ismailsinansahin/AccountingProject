@@ -21,13 +21,13 @@ public class BaseEntity {
     private Long id;
 
     @Column(nullable = false,updatable = false)
-    public LocalDateTime insertDateTime;
+    public LocalDateTime created_time;
     @Column(nullable = false,updatable = false)
-    public Long insertUserId;
+    public Long created_by;
     @Column(nullable = false)
-    public LocalDateTime lastUpdateDateTime;
+    public LocalDateTime updated_time;
     @Column(nullable = false)
-    public Long lastUpdateUserId;
+    public Long updated_by;
 
     private Boolean isDeleted = false;
 

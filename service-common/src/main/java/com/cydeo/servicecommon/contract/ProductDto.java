@@ -21,16 +21,17 @@ public class ProductDto implements Serializable {
 
     private String productName;
     private String description;
+
     @JsonProperty("category")
-    private  CategoryDto categoryDto;
+    private  Long categoryId;
     private int qty;
     private int price;
     private String unit;
     private int lowLimitAlert;
     private int tax;
     private Long companyId;
-    private Byte enabled;
+    private Boolean enabled;
     private String productStatus;
-    private boolean isDeleted= false;
+    private Boolean isDeleted;
 
 }

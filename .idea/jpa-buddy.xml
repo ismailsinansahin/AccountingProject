@@ -2,5 +2,7 @@
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig">
     <option name="defaultUnitInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="941e0c11-f963-41df-a55d-c3a7c709ac5a" />
+    <option name="reLastEntityCreationPackage" value="service-company/src/main/java/com/cydeo/apigateway" />
   </component>
 </project>

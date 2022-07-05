@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="accounting-app-db" uuid="8ac983de-da07-484f-ac95-db911ed0077d">
+    <data-source source="LOCAL" name="127.0.01" uuid="7e469d24-f0ca-4f4f-9012-a0e608fc2d05">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>localhostmysqldatabse</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/accounting</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="accountings3db@s.amazonaws.com" uuid="941e0c11-f963-41df-a55d-c3a7c709ac5a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://accountings3db.cdwb5j8qoo5x.us-east-1.rds.amazonaws.com:3306/accounting-test-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="accounting-app-db@localhost" uuid="3c0db0af-3a07-4574-bd50-6a09dc0d9952">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <schema-control>AUTOMATIC</schema-control>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/accounting-app-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="api_accounting_db@dpg-caskgq7d17c713thblhg-a.frankfurt-postgres.render.com" uuid="19923626-2265-425d-a93c-d040ddfcb19c">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-caskgq7d17c713thblhg-a.frankfurt-postgres.render.com/api_accounting_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

@@ -2,10 +2,8 @@ package com.cydeo.serviceproduct.entity;
 
 import com.cydeo.serviceproduct.enums.ProductStatus;
 import com.cydeo.serviceproduct.enums.Unit;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -13,32 +11,50 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "products")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Where(clause="is_deleted = false")
-public class Product extends BaseEntity implements Serializable {
+public class Product extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "product_name")
     private String productName;
-    private String description;
 
+    @Column(name = "description")
+    private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    private Category category;
-    private int qty;
-    private int price;
+    private Category categoryId;
+
+    @Column(name = "qty")
+    private Integer qty;
+
+    @Column(name = "unit")
     @Enumerated(EnumType.STRING)
     private Unit unit;
-    private int lowLimitAlert;
-    private int tax;
 
+    @Column(name = "low_limit_alert")
+    private Integer lowLimitAlert;
+
+    @Column(name = "tax")
+    private Integer tax;
+
+
+    @Column(name = "company_id")
     private Long companyId;
-    private Byte enabled;
+
+    @Column(name = "enabled")
+    private Boolean enabled;
+
+    @Column(name = "product_status")
     @Enumerated(EnumType.STRING)
     private ProductStatus productStatus;
-    private boolean isDeleted= false;
+
+
+
+
+
+
 }

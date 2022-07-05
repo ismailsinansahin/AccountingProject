@@ -41,12 +41,13 @@ import java.util.List;
 public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailForService {
 
 
-
-
-    @Autowired
     private WebClient.Builder webClient;
-    @Autowired
     private ObjectMapper jacksonMapper;
+
+    public PaymentServiceImpl(WebClient.Builder webClient, ObjectMapper jacksonMapper) {
+        this.webClient = webClient;
+        this.jacksonMapper = jacksonMapper;
+    }
 
     private String institutionId = "modelo-sandbox";
     private String callback = "https://display-parameters.com/";
@@ -64,11 +65,7 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
 // @Value("${client_secret}")
 // private String client_secret;
 
-    public static void main(String[] args) throws ApiException {
 
-        PaymentServiceImpl paymentService = new PaymentServiceImpl();
-        paymentService.getInstitutionsWithSdk();
-    }
 
     public String generateToken() {
 
@@ -93,7 +90,6 @@ public class PaymentServiceImpl implements PaymentService,ConfigPaymentDetailFor
                 .retryWhen(Retry.fixedDelay(3, Duration.ofMillis(100)))
                 .doOnError(error -> log.error("An error has occurred {}", error.getMessage()))
                 .block();
-
 
         return authorization;
     }
