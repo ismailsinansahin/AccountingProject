@@ -19,9 +19,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cydeo.serviceproduct.mapper.MapperUtil;
 import com.cydeo.serviceproduct.repository.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.function.Executable;
+import org.mockito.ArgumentMatcher;
+import org.mockito.ArgumentMatchers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -35,6 +39,8 @@ class ProductServiceImplTest {
     private ModelMapper modelMapper;
 
     @MockBean
+    private MapperUtil mapperUtil;
+    @MockBean
     private ProductRepository productRepository;
 
     @Autowired
@@ -47,6 +53,37 @@ class ProductServiceImplTest {
         assertTrue(actualListOfCompanyProductsResult.isEmpty());
         verify(this.productRepository).findAllByCompanyId((Long) any());
         assertEquals(actualListOfCompanyProductsResult, this.productServiceImpl.getAllProducts());
+    }
+
+    @Test
+    public void listOfCompanyProductsTest() throws Exception {
+
+        List<Product> mockData = new ArrayList<>();
+
+        String errorMessage = "There is no product listed under this company yet";
+
+        when(productRepository.findAllByCompanyId((Long) ArgumentMatchers.any())).thenReturn(mockData);
+//        List<ProductDto> actualList = productServiceImpl.listOfCompanyProducts(1234L);
+//        assertTrue(actualList.isEmpty());
+
+        Exception exception = assertThrows(Exception.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                productServiceImpl.listOfCompanyProducts(1234L);
+
+            }
+        });
+        assertEquals(errorMessage,exception.getMessage());
+//        when(this.modelMapper.map((Object) any(), (Class<Object>) any())).thenReturn(new ProductDto());
+//        when(this.modelMapper.map(any(),any())).thenReturn(new ProductDto());
+
+
+
+
+
+
+
+
     }
 
     @Test
@@ -202,7 +239,7 @@ class ProductServiceImplTest {
         product1.setProductName("Product Name");
         product1.setQty(0);
         product1.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
-        
+
 
         ArrayList<Product> productList = new ArrayList<>();
         productList.add(product1);
@@ -247,7 +284,7 @@ class ProductServiceImplTest {
         product.setProductName("Product Name");
         product.setQty(1);
         product.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
-         
+
         when(this.productRepository.getById((Long) any())).thenReturn(product);
         ProductDto productDto = new ProductDto();
         when(this.modelMapper.map((Object) any(), (Class<Object>) any())).thenReturn(productDto);
@@ -290,7 +327,7 @@ class ProductServiceImplTest {
         product.setProductName("Product Name");
         product.setQty(1);
         product.setCreated_time(LocalDateTime.of(1, 1, 1, 1, 1));
-         
+
 
         Category category1 = new Category();
         category1.setProduct(new ArrayList<>());

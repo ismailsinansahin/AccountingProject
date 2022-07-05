@@ -10,6 +10,7 @@ import static org.mockito.Mockito.when;
 
 import com.cydeo.servicecommon.contract.CategoryDto;
 import com.cydeo.serviceproduct.entity.Category;
+import com.cydeo.serviceproduct.entity.Product;
 import com.cydeo.serviceproduct.repository.CategoryRepository;
 
 import java.time.LocalDateTime;
@@ -146,5 +147,7 @@ class CategoryServiceImplTest {
                 this.categoryServiceImpl.delete(123L));
         verify(this.categoryRepository).findById((Long) any());
     }
+
+
 }
 

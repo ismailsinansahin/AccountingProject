@@ -25,7 +25,7 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDto> listOfCompanyProducts(Long companyId) throws Exception {
         List<Product> products = productRepository.findAllByCompanyId(companyId);
 
-        if (!products.isEmpty()) throw new Exception("There is no product listed under this company yet");
+        if (products.isEmpty()) throw new Exception("There is no product listed under this company yet");
 
          return products.stream().map(e -> mapperUtil.convert(e,new ProductDto())).collect(Collectors.toList());
 
