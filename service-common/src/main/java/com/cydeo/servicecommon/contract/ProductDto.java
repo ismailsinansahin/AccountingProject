@@ -32,6 +32,5 @@ public class ProductDto implements Serializable {
     private Long companyId;
     private Boolean enabled;
     private String productStatus;
-    private Boolean isDeleted;
 
 }

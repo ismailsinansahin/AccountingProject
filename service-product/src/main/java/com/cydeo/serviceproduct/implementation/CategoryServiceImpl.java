@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,10 +55,20 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto update(CategoryDto categoryDto, Long id) {
 
-        categoryDto.setId(id);
-        Category findById= categoryRepository.findById(categoryDto.getId()).get();
+
+        Category findById= categoryRepository.findById(id).get();
         Category map = mapperUtil.convert(categoryDto, new Category());
         map.setId(findById.getId());
+
+        for (Field field : map.getClass().getFields()) {
+            if(field==null){
+                try {
+                    field = findById.getClass().getField(field.getName());
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
         return mapperUtil.convert(map,new CategoryDto());
     }
