@@ -31,7 +31,7 @@ public class ReportController {
     public ResponseEntity<ResponseWrapper> getByProductId(@PathVariable("productId") Long productId) {
         List<ReportDto> reportList = reportService.findAllByProduct(productId);
         if (reportList.isEmpty()){
-            return ResponseEntity.ok(new ResponseWrapper(true, "There is no report by this product id = " + productId, 404, reportList));
+            return ResponseEntity.ok(new ResponseWrapper(false, "There is no report by this product id = " + productId, 404, reportList));
         }
         return ResponseEntity.ok(new ResponseWrapper("Report is retrieved by product id = " + productId, reportList));
     }
