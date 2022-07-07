@@ -6,6 +6,7 @@ import com.cydeo.servicereport.repository.ReportRepository;
 import com.cydeo.servicereport.service.ReportService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,9 +33,19 @@ public class ReportServiceImplementation implements ReportService {
     @Override
     public List<ReportDto> findAllByProduct(Long productId) {
         return reportRepository
-                . findAllByProduct(productId)
+                .findAllByProduct(productId)
                 .stream()
                 .map(entity -> mapperUtil.convert(entity, new ReportDto()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ReportDto> findAllByQuantity(int quantity) {
+        return reportRepository
+                .findAllByQuantity(quantity)
+                .stream()
+                .map(entity -> mapperUtil.convert(entity, new ReportDto()))
+                .collect(Collectors.toList());
+
     }
 }

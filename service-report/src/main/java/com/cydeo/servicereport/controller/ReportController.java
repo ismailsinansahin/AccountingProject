@@ -4,12 +4,11 @@ import com.cydeo.servicecommon.contract.ReportDto;
 import com.cydeo.servicecommon.general.ResponseWrapper;
 import com.cydeo.servicereport.entity.Report;
 import com.cydeo.servicereport.service.ReportService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -35,6 +34,15 @@ public class ReportController {
             return ResponseEntity.ok(new ResponseWrapper(true, "There is no report by this product id = " + productId, 404, reportList));
         }
         return ResponseEntity.ok(new ResponseWrapper("Report is retrieved by product id = " + productId, reportList));
+    }
+
+    @GetMapping("/quantity")
+    public ResponseEntity<ResponseWrapper> getByQuantity(@RequestParam("quantity") int quantity) {
+        List<ReportDto> reportList = reportService.findAllByQuantity(quantity);
+        if (reportList.isEmpty()){
+            return ResponseEntity.ok(new ResponseWrapper(true, "There is no report by this quantity = " + quantity, 404, reportList));
+        }
+        return ResponseEntity.ok(new ResponseWrapper("Report is retrieved by quantity = " + quantity, reportList));
     }
 
 }

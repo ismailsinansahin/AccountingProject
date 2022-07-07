@@ -8,5 +8,8 @@ import java.util.List;
 
 @Repository
 public interface ReportRepository extends JpaRepository<Report, Long> {
+
     List<Report> findAllByProduct(Long productId);
+
+    List<Report>  findAllByQuantity(int quantity);
 }

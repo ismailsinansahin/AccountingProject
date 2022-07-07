@@ -3,6 +3,7 @@ package com.cydeo.servicereport.service;
 import com.cydeo.servicecommon.contract.ReportDto;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ReportService {
@@ -11,4 +12,5 @@ public interface ReportService {
 
     List<ReportDto> findAllByProduct(Long productId);
 
+    List<ReportDto> findAllByQuantity(int quantity);
 }
