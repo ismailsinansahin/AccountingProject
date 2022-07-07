@@ -28,4 +28,13 @@ public class ReportServiceImplementation implements ReportService {
                 .map(entity -> mapperUtil.convert(entity, new ReportDto()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<ReportDto> findAllByProduct(Long productId) {
+        return reportRepository
+                . findAllByProduct(productId)
+                .stream()
+                .map(entity -> mapperUtil.convert(entity, new ReportDto()))
+                .collect(Collectors.toList());
+    }
 }
