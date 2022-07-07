@@ -40,7 +40,7 @@ public class ReportController {
     public ResponseEntity<ResponseWrapper> getByQuantity(@RequestParam("quantity") int quantity) {
         List<ReportDto> reportList = reportService.findAllByQuantity(quantity);
         if (reportList.isEmpty()){
-            return ResponseEntity.ok(new ResponseWrapper(true, "There is no report by this quantity = " + quantity, 404, reportList));
+            return ResponseEntity.ok(new ResponseWrapper(false, "There is no report by this quantity = " + quantity, 404, reportList));
         }
         return ResponseEntity.ok(new ResponseWrapper("Report is retrieved by quantity = " + quantity, reportList));
     }
