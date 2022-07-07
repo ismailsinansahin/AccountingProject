@@ -48,4 +48,13 @@ public class ReportServiceImplementation implements ReportService {
                 .collect(Collectors.toList());
 
     }
+
+    @Override
+    public List<ReportDto> findAllByPrice(int price) {
+        return reportRepository
+                .findAllByPrice(price)
+                .stream()
+                .map(entity -> mapperUtil.convert(entity, new ReportDto()))
+                .collect(Collectors.toList());
+    }
 }

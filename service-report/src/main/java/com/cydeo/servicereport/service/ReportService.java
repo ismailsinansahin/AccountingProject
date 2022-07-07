@@ -13,4 +13,6 @@ public interface ReportService {
     List<ReportDto> findAllByProduct(Long productId);
 
     List<ReportDto> findAllByQuantity(int quantity);
+
+    List<ReportDto> findAllByPrice(int price);
 }
