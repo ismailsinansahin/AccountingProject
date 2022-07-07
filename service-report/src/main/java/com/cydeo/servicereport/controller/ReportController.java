@@ -29,10 +29,10 @@ public class ReportController {
     }
 
     @GetMapping("/{productId}")
-    public ResponseEntity<ResponseWrapper> getByProductId(@PathVariable("productId") Long productId) throws Exception {
+    public ResponseEntity<ResponseWrapper> getByProductId(@PathVariable("productId") Long productId) {
         List<ReportDto> reportList = reportService.findAllByProduct(productId);
         if (reportList.isEmpty()){
-            throw new Exception("There is no report by this product id = " + productId);
+            return ResponseEntity.ok(new ResponseWrapper("There is no report by this product id = " + productId, reportList));
         }
         return ResponseEntity.ok(new ResponseWrapper("Report is retrieved by product id = " + productId, reportList));
     }
