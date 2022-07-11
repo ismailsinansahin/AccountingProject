@@ -1,9 +1,7 @@
 package com.cydeo.serviceproduct.implementation;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.ThrowableAssert.catchThrowable;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
@@ -26,6 +24,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
 import org.mockito.ArgumentMatcher;
 import org.mockito.ArgumentMatchers;
+import org.mockito.InjectMocks;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -43,20 +42,22 @@ class ProductServiceImplTest {
     @MockBean
     private ProductRepository productRepository;
 
-    @Autowired
+    @InjectMocks
     private ProductServiceImpl productServiceImpl;
 
     @Test
     void testListOfCompanyProducts() throws Exception {
         when(this.productRepository.findAllByCompanyId((Long) any())).thenReturn(new ArrayList<>());
         List<ProductDto> actualListOfCompanyProductsResult = this.productServiceImpl.listOfCompanyProducts(123L);
-        assertTrue(actualListOfCompanyProductsResult.isEmpty());
+        Throwable throwable = catchThrowable(()->productServiceImpl.listOfCompanyProducts(123L));
+        assertNotNull(throwable);
+
         verify(this.productRepository).findAllByCompanyId((Long) any());
         assertEquals(actualListOfCompanyProductsResult, this.productServiceImpl.getAllProducts());
     }
 
     @Test
-    public void listOfCompanyProductsTest() throws Exception {
+     void listOfCompanyProductsTest() throws Exception {
 
         List<Product> mockData = new ArrayList<>();
 
@@ -76,12 +77,6 @@ class ProductServiceImplTest {
         assertEquals(errorMessage,exception.getMessage());
 //        when(this.modelMapper.map((Object) any(), (Class<Object>) any())).thenReturn(new ProductDto());
 //        when(this.modelMapper.map(any(),any())).thenReturn(new ProductDto());
-
-
-
-
-
-
 
 
     }

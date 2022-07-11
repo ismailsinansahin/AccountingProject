@@ -1,6 +1,7 @@
 package com.cydeo.servicepayment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -24,5 +25,10 @@ public class ServicePaymentApplication {
     @Bean
     public ObjectMapper getObjectMapper(){
         return new ObjectMapper();
+    }
+
+    @Bean
+    public ModelMapper modelMApper(){
+        return new ModelMapper();
     }
 }

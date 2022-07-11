@@ -49,6 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
     public String delete(Long categoryId) {
         Category category = categoryRepository.findById(categoryId).get();
         category.setIsDeleted(true);
+        categoryRepository.save(category);
         return category.getDescription() + " Category deleted successfully";
     }
 

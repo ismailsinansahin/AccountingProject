@@ -34,3 +34,6 @@ spring:
 #  client_secret= "40316b6d-4656-409c-bd1b-ac1f11738ae8"
 #  applicationUserId= "tommy@gmail.com"
 #  institutionId="modelo-sandbox"
+
+STRIPE_PUBLIC_KEY: pk_test_51LKHUeDK9WQkQVloOBpVgc82qErxsAIVJm42mnR07gCBLG9cu9pdSqqKVmPlo08wroEjlkDvgbCkup5D8zpdp0U60004q4f0kn
+STRIPE_PRIVATE_KEY: sk_test_51LKHUeDK9WQkQVloxfGjmH9u2RFMCuQ0KF4Aw7JUVmhkZXAfbi4QB9jKbNktRYmlnJ4DHuLKwmqX7SnG2pNHrVCy00Rirs4Da7
