@@ -1,6 +1,5 @@
 
-package com.cydeo;
-
+package com.cydeo.servicepayment.dto.stripe.stripedto;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;

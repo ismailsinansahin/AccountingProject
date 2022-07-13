@@ -1,0 +1,105 @@
+swagger: '2.0'
+#x-stoplight:
+#  id: 123321
+
+info:
+  title: Product Service
+  version: 1.0.0
+  description: Product Service Documentation for Microcervice-api
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /api/v1/products/list:
+    parameters: []
+    get:
+      summary: List All Product of Company
+      operationId: opertion id-v1
+#      x-google-backend:
+#        address: 'https://openbanking-mr6koi7eaq-nw.a.run.app'
+#        path_translation: APPEND_PATH_TO_ADDRESS
+      responses:
+        '200':
+          description: OK
+
+  /api/v1/products/all-product-list:
+    parameters: []
+    get:
+      summary: Get all product list withoutt filtering company
+      operationId: get-blog-v1
+      x-google-backend:
+#        address: 'https://blog.justizia.co.uk/ghost/api'
+        path_translation: APPEND_PATH_TO_ADDRESS
+      responses:
+        '200':
+          description: OK
+
+  /api/v1/products/create:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: event
+          schema:
+            type: object
+      summary: Create a new product for company inventory
+      operationId: post-new-product
+      x-google-backend:
+#        address: 'https://openbanking-mr6koi7eaq-nw.a.run.app'
+        path_translation: APPEND_PATH_TO_ADDRESS
+      responses:
+        '201':
+          description: OK
+  /api/v1/products/get:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: event
+          schema:
+            type: object
+      summary: Get a product with Id
+      operationId: get-product-by-id
+      x-google-backend:
+        #        address: 'https://openbanking-mr6koi7eaq-nw.a.run.app'
+        path_translation: APPEND_PATH_TO_ADDRESS
+      responses:
+        '200':
+          description: OK
+  /api/v1/products/delete/{productid}:
+    delete:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: event
+          schema:
+            type: object
+      summary: Delete Product
+      operationId: delete-product
+      x-google-backend:
+        #        address: 'https://openbanking-mr6koi7eaq-nw.a.run.app'
+        path_translation: APPEND_PATH_TO_ADDRESS
+      responses:
+        '200':
+          description: OK
+  /api/v1/products/edit/{productid}:
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: event
+          schema:
+            type: object
+      summary: Edit product for company inventory
+      operationId: put-payments-stripe-events-v1
+      x-google-backend:
+        #        address: 'https://openbanking-mr6koi7eaq-nw.a.run.app'
+        path_translation: APPEND_PATH_TO_ADDRESS
+      responses:
+        '200':
+          description: OK

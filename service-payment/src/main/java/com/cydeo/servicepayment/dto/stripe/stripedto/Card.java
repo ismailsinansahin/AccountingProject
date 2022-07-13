@@ -1,5 +1,7 @@
 
-package com.cydeo;
+package com.cydeo.servicepayment.dto.stripe.stripedto;
+
+import com.cydeo.Checks;
 
 import java.util.HashMap;
 import java.util.Map;
