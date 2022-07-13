@@ -32,7 +32,7 @@ public class StripeController {
 
     }
     @PostMapping("/charge")
-    public ResultEnvelope<Charge> charge(@RequestBody ChargeRequest chargeRequest,@RequestParam("stripePublicKey") String stripePublicKey) throws StripeException {
+    public ResultEnvelope<com.stripe.model.Charge> charge(@RequestBody ChargeRequest chargeRequest,@RequestParam("stripePublicKey") String stripePublicKey) throws StripeException {
         Charge charge = stripeService.charge(chargeRequest);
 
         return ResultEnvelope.ok(charge);
