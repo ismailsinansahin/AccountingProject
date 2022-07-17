@@ -96,9 +96,22 @@ paths:
           schema:
             type: object
       summary: Edit product for company inventory
-      operationId: put-payments-stripe-events-v1
-      x-google-backend:
-        #        address: 'https://openbanking-mr6koi7eaq-nw.a.run.app'
+      operationId: edit product informations
+        path_translation: APPEND_PATH_TO_ADDRESS
+      responses:
+        '200':
+          description: OK
+  /api/v1/category/list:
+    get:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: event
+          schema:
+            type: object
+      summary: Get list of all category
+      operationId: get list of Category of Products
         path_translation: APPEND_PATH_TO_ADDRESS
       responses:
         '200':
